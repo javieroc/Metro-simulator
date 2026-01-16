@@ -1,3 +1,14 @@
-[gd_scene format=3 uid="uid://b73xxi1iignow"]
+[gd_scene load_steps=3 format=3 uid="uid://b73xxi1iignow"]
 
-[node name="Station" type="Node2D"]
+[ext_resource type="Script" uid="uid://dqxik4fjocfnu" path="res://scripts/station.gd" id="1_0r0hh"]
+[ext_resource type="Texture2D" uid="uid://demp5deldovhh" path="res://Station.png" id="2_rvx7u"]
+
+[node name="Station" type="Node2D" groups=["stations"]]
+script = ExtResource("1_0r0hh")
+
+[node name="NameLabel" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="Icon" type="Sprite2D" parent="."]
+texture = ExtResource("2_rvx7u")

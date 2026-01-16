@@ -1,9 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://bkyelsl6agbg3"]
+[gd_scene load_steps=8 format=3 uid="uid://bkyelsl6agbg3"]
 
 [ext_resource type="Texture2D" uid="uid://dv65revb72s3x" path="res://Moscow_metro_map_v2.svg" id="1_jyhfs"]
 [ext_resource type="Script" uid="uid://udywnql2x2y4" path="res://scripts/camera_2d.gd" id="2_0wfyh"]
 [ext_resource type="Script" uid="uid://dyamh5lv5yo5a" path="res://scripts/TrainMovement.gd" id="3_jyhfs"]
+[ext_resource type="Script" uid="uid://e3camb0ai8ha" path="res://scripts/red_line.gd" id="3_tefeu"]
 [ext_resource type="Texture2D" uid="uid://bapv44fm5xlpp" path="res://train.svg" id="4_jyhfs"]
+[ext_resource type="PackedScene" uid="uid://b73xxi1iignow" path="res://scenes/station.tscn" id="5_tbgi4"]
 
 [sub_resource type="Curve2D" id="Curve2D_jyhfs"]
 _data = {
@@ -28,6 +30,7 @@ script = ExtResource("2_0wfyh")
 
 [node name="RedLine" type="Path2D" parent="Tracks"]
 curve = SubResource("Curve2D_jyhfs")
+script = ExtResource("3_tefeu")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Tracks/RedLine"]
 position = Vector2(4160, 1059)
@@ -35,6 +38,23 @@ rotation = 2.360344
 script = ExtResource("3_jyhfs")
 
 [node name="Sprite2D" type="Sprite2D" parent="Tracks/RedLine/PathFollow2D"]
-position = Vector2(4.935089, -3.5560303)
+position = Vector2(1.4083862, -1.4200611)
 rotation = 1.5707964
 texture = ExtResource("4_jyhfs")
+
+[node name="Stations" type="Node2D" parent="."]
+
+[node name="Bulvar Rokossovskogo (Бульвар Рокоссовского)" parent="Stations" instance=ExtResource("5_tbgi4")]
+position = Vector2(4161, 1061)
+
+[node name="Cherkizovskaya (Черкизовская)" parent="Stations" instance=ExtResource("5_tbgi4")]
+position = Vector2(4040, 1182)
+
+[node name="Preobrazhenskaya Ploshchad (Преображенская площадь)" parent="Stations" instance=ExtResource("5_tbgi4")]
+position = Vector2(3920, 1301)
+
+[node name="Sokolniki (Сокольники)" parent="Stations" instance=ExtResource("5_tbgi4")]
+position = Vector2(3800, 1421)
+
+[node name="Krasnoselskaya (Красносельская)" parent="Stations" instance=ExtResource("5_tbgi4")]
+position = Vector2(3680, 1540)
