@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://besj5cuo7aaij"]
+
+[ext_resource type="Texture2D" uid="uid://bapv44fm5xlpp" path="res://train.svg" id="1_68jl8"]
+[ext_resource type="Script" uid="uid://lwfwg82wpmy5" path="res://scripts/train.gd" id="1_d43s7"]
+
+[node name="Train" type="PathFollow2D"]
+z_index = 10
+script = ExtResource("1_d43s7")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_68jl8")

@@ -1,13 +1,27 @@
 extends PathFollow2D
 
+# --- Physical parameters ---
 @export var max_speed := 300.0
 @export var acceleration := 200.0
 @export var braking := 300.0
 
-var current_speed := 0.0
+# --- Capacity & passengers ---
+@export var capacity := 1000
+var passengers_on_board := 0
+
+# --- Line & routing ---
 var stations := []
-var current_station_index := 1
+var current_station_index := 0
+var next_station_index := 1
+
+# --- State ---
+var current_speed := 0.0
 var waiting := false
+var direction := 1   # 1 forward, -1 backward (future)
+
+# --- Time ---
+var dwell_timer := 0.0
+var total_travel_time := 0.0
 
 func _ready():
 	await get_tree().process_frame
@@ -18,7 +32,7 @@ func _ready():
 	progress = stations[0].offset_on_path
 
 func _process(delta):
-	if waiting or stations.is_empty():
+	if waiting:
 		return
 
 	var target_offset = stations[current_station_index].offset_on_path

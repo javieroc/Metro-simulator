@@ -1,10 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://bkyelsl6agbg3"]
+[gd_scene load_steps=7 format=3 uid="uid://bkyelsl6agbg3"]
 
 [ext_resource type="Texture2D" uid="uid://dv65revb72s3x" path="res://Moscow_metro_map_v2.svg" id="1_jyhfs"]
 [ext_resource type="Script" uid="uid://udywnql2x2y4" path="res://scripts/camera_2d.gd" id="2_0wfyh"]
-[ext_resource type="Script" uid="uid://dyamh5lv5yo5a" path="res://scripts/TrainMovement.gd" id="3_jyhfs"]
 [ext_resource type="Script" uid="uid://e3camb0ai8ha" path="res://scripts/red_line.gd" id="3_tefeu"]
-[ext_resource type="Texture2D" uid="uid://bapv44fm5xlpp" path="res://train.svg" id="4_jyhfs"]
+[ext_resource type="PackedScene" uid="uid://besj5cuo7aaij" path="res://scenes/train.tscn" id="4_tbgi4"]
 [ext_resource type="PackedScene" uid="uid://b73xxi1iignow" path="res://scenes/station.tscn" id="5_tbgi4"]
 
 [sub_resource type="Curve2D" id="Curve2D_jyhfs"]
@@ -32,15 +31,10 @@ script = ExtResource("2_0wfyh")
 curve = SubResource("Curve2D_jyhfs")
 script = ExtResource("3_tefeu")
 
-[node name="PathFollow2D" type="PathFollow2D" parent="Tracks/RedLine"]
+[node name="Train_01" parent="Tracks/RedLine" instance=ExtResource("4_tbgi4")]
 position = Vector2(4160, 1059)
-rotation = 2.360344
-script = ExtResource("3_jyhfs")
-
-[node name="Sprite2D" type="Sprite2D" parent="Tracks/RedLine/PathFollow2D"]
-position = Vector2(1.4083862, -1.4200611)
-rotation = 1.5707964
-texture = ExtResource("4_jyhfs")
+rotation = 3.9269907
+rotates = false
 
 [node name="Stations" type="Node2D" parent="."]
 
