@@ -33,8 +33,7 @@ script = ExtResource("3_tefeu")
 
 [node name="Train_01" parent="Tracks/RedLine" instance=ExtResource("4_tbgi4")]
 position = Vector2(4160, 1059)
-rotation = 3.9269907
-rotates = false
+rotation = -2.073451
 
 [node name="Stations" type="Node2D" parent="."]
 

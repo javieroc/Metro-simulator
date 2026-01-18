@@ -8,4 +8,5 @@ z_index = 10
 script = ExtResource("1_d43s7")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = 1.5707964
 texture = ExtResource("1_68jl8")
