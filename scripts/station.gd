@@ -1,7 +1,7 @@
 extends Node2D
 
 @export var station_name: String
-@export var dwell_time: float = 20.0
+@export var dwell_time: float = 1.0
 @export var platform_capacity: int = 1000
 
 var path: Path2D

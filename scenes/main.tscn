@@ -52,3 +52,54 @@ position = Vector2(3800, 1421)
 
 [node name="Krasnoselskaya (Красносельская)" parent="Stations" instance=ExtResource("5_tbgi4")]
 position = Vector2(3680, 1540)
+
+[node name="Komsomolskaya (Комсомольская)" parent="Stations" instance=ExtResource("5_tbgi4")]
+position = Vector2(3547, 1672)
+
+[node name="Krasnye Vorota (Красные Ворота)" parent="Stations" instance=ExtResource("5_tbgi4")]
+position = Vector2(3380, 1840)
+
+[node name="Chistye Prudy (Чистые пруды)" parent="Stations" instance=ExtResource("5_tbgi4")]
+position = Vector2(3185, 2031)
+
+[node name="Lubyanka (Лубянка)" parent="Stations" instance=ExtResource("5_tbgi4")]
+position = Vector2(2808, 2120)
+
+[node name="Okhotny Ryad (Охотный ряд)" parent="Stations" instance=ExtResource("5_tbgi4")]
+position = Vector2(2634, 2293)
+
+[node name="Biblioteka Imeni Lenina (Библиотека имени Ленина)" parent="Stations" instance=ExtResource("5_tbgi4")]
+position = Vector2(2420, 2512)
+
+[node name="Kropotkinskaya (Кропоткинская)" parent="Stations" instance=ExtResource("5_tbgi4")]
+position = Vector2(2135, 2792)
+
+[node name="Park Kultury (Парк культуры)" parent="Stations" instance=ExtResource("5_tbgi4")]
+position = Vector2(1824, 3103)
+
+[node name="Frunzenskaya (Фрунзенская)" parent="Stations" instance=ExtResource("5_tbgi4")]
+position = Vector2(1701, 3229)
+
+[node name="Sportivnaya (Спортивная)" parent="Stations" instance=ExtResource("5_tbgi4")]
+position = Vector2(1579, 3350)
+
+[node name="Vorobyovy Gory (Воробьёвы горы)" parent="Stations" instance=ExtResource("5_tbgi4")]
+position = Vector2(1460, 3469)
+
+[node name="Universitet (Университет)" parent="Stations" instance=ExtResource("5_tbgi4")]
+position = Vector2(1340, 3590)
+
+[node name="Prospekt Vernadskogo (Проспект Вернадского)" parent="Stations" instance=ExtResource("5_tbgi4")]
+position = Vector2(1218, 3711)
+
+[node name="Yugo-Zapadnaya (Юго-Западная)" parent="Stations" instance=ExtResource("5_tbgi4")]
+position = Vector2(1098, 3831)
+
+[node name="Troparyovo (Тропарёво)" parent="Stations" instance=ExtResource("5_tbgi4")]
+position = Vector2(979, 3948)
+
+[node name="Rumyantsevo (Румянцево)" parent="Stations" instance=ExtResource("5_tbgi4")]
+position = Vector2(860, 4068)
+
+[node name="Salaryevo (Саларьево)" parent="Stations" instance=ExtResource("5_tbgi4")]
+position = Vector2(736, 4187)
