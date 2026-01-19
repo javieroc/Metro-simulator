@@ -1,10 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://bkyelsl6agbg3"]
+[gd_scene load_steps=9 format=3 uid="uid://bkyelsl6agbg3"]
 
 [ext_resource type="Texture2D" uid="uid://dv65revb72s3x" path="res://Moscow_metro_map_v2.svg" id="1_jyhfs"]
 [ext_resource type="Script" uid="uid://udywnql2x2y4" path="res://scripts/camera_2d.gd" id="2_0wfyh"]
 [ext_resource type="Script" uid="uid://e3camb0ai8ha" path="res://scripts/red_line.gd" id="3_tefeu"]
 [ext_resource type="PackedScene" uid="uid://besj5cuo7aaij" path="res://scenes/train.tscn" id="4_tbgi4"]
 [ext_resource type="PackedScene" uid="uid://b73xxi1iignow" path="res://scenes/station.tscn" id="5_tbgi4"]
+[ext_resource type="Texture2D" uid="uid://biueyctayll8g" path="res://UI/menu_botton.svg" id="6_o6xl0"]
+[ext_resource type="Texture2D" uid="uid://cs7ckdxanc1c" path="res://UI/menu_button_pressed.svg" id="7_tipki"]
 
 [sub_resource type="Curve2D" id="Curve2D_jyhfs"]
 _data = {
@@ -102,3 +104,11 @@ position = Vector2(860, 4068)
 
 [node name="Salaryevo (Саларьево)" parent="Stations" instance=ExtResource("5_tbgi4")]
 position = Vector2(736, 4187)
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="TextureButton" type="TextureButton" parent="UI"]
+offset_right = 40.0
+offset_bottom = 40.0
+texture_normal = ExtResource("6_o6xl0")
+texture_pressed = ExtResource("7_tipki")
