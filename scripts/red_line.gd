@@ -1,6 +1,7 @@
 extends Path2D
 
 var stations := []
+@export var bidirectional := true
 
 func register_station(station):
 	stations.append(station)
