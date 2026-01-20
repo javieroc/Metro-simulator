@@ -27,7 +27,7 @@ var bidirectional := true
 
 func _ready():
 	await get_tree().process_frame
-	var line = get_parent() as Path2D
+	var line = get_parent() as MetroLine
 	stations = line.stations
 	print("Stations loaded:", stations.size())
 

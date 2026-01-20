@@ -1,8 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://bkyelsl6agbg3"]
+[gd_scene load_steps=10 format=3 uid="uid://bkyelsl6agbg3"]
 
 [ext_resource type="Texture2D" uid="uid://dv65revb72s3x" path="res://Moscow_metro_map_v2.svg" id="1_jyhfs"]
 [ext_resource type="Script" uid="uid://udywnql2x2y4" path="res://scripts/camera_2d.gd" id="2_0wfyh"]
-[ext_resource type="Script" uid="uid://e3camb0ai8ha" path="res://scripts/red_line.gd" id="3_tefeu"]
+[ext_resource type="Script" uid="uid://e3camb0ai8ha" path="res://scripts/metro_line.gd" id="3_tefeu"]
 [ext_resource type="PackedScene" uid="uid://besj5cuo7aaij" path="res://scenes/train.tscn" id="4_tbgi4"]
 [ext_resource type="PackedScene" uid="uid://b73xxi1iignow" path="res://scenes/station.tscn" id="5_tbgi4"]
 [ext_resource type="Texture2D" uid="uid://biueyctayll8g" path="res://UI/menu_botton.svg" id="6_o6xl0"]
@@ -13,6 +13,12 @@ _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 4160, 1059, 0, 0, 0, 0, 4039, 1179, 0, 0, 0, 0, 3919, 1299, 0, 0, 0, 0, 3800, 1420, 0, 0, 0, 0, 3680, 1540, 0, 0, 0, 0, 3547, 1672, 0, 0, 0, 0, 3380, 1840, 13.461203, -5.7576838, -13.461203, 5.7576838, 3185, 2031, 41.98566, -6.3614635, -41.98566, 6.3614635, 2917, 2036, 0, 0, 0, 0, 2808, 2119, 0, 0, 0, 0, 2634, 2297, 0, 0, 0, 0, 2421, 2509, 0, 0, 0, 0, 2136, 2792, 0, 0, 0, 0, 1824, 3105, 0, 0, 0, 0, 1700, 3228, 0, 0, 0, 0, 1580, 3348, 0, 0, 0, 0, 1460, 3468, 0, 0, 0, 0, 1340, 3588, 0, 0, 0, 0, 1220, 3708, 0, 0, 0, 0, 1100, 3828, 0, 0, 0, 0, 980, 3948, 0, 0, 0, 0, 860, 4068, 0, 0, 0, 0, 740, 4188)
 }
 point_count = 23
+
+[sub_resource type="Curve2D" id="Curve2D_o6xl0"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 188, 872, 0, 0, 0, 0, 187, 991, 0, 0, 0, 0, 186, 1110, 0, 0, 0, 0, 188, 1232, 0, 0, 0, 0, 188, 1352, 0, 0, 0, 0, 188, 1472, 0, 0, 0, 0, 188, 1592, 0, 0, 0, 0, 188, 1721, -8.692898, -37.255276, 8.692898, 37.255276, 196, 1973, 0, 0, 0, 0, 428, 2220, 0, 0, 0, 0, 667, 2458, -68.18698, -5.098092, 68.18698, 5.098092, 765, 2512, 0, 0, 0, 0, 1550, 2509, -31.003462, -26.38898, 31.003462, 26.38898, 1620, 2539, -49.6737, -4.96737, 49.6737, 4.96737, 1717, 2592, 0, 0, 0, 0, 1904, 2592, 0, 0, 0, 0, 2079, 2592, -20.348318, 26.333117, 20.348318, -26.333117, 2147, 2566, -39.739067, 2.8727036, 39.739067, -2.8727036, 2262, 2508, 0, 0, 0, 0, 2636, 2510, 0, 0, 0, 0, 3457, 2512, -21.11002, 17.410324, 21.11002, -17.410324, 3519, 2489, 0, 0, 0, 0, 3585, 2427, 0, 0, 0, 0, 3744, 2268, 0, 0, 0, 0, 3864, 2148, 0, 0, 0, 0, 3984, 2028, 0, 0, 0, 0, 4104, 1908, 0, 0, 0, 0, 4224, 1788, 0, 0, 0, 0, 4344, 1668, 0, 0, 0, 0, 4464, 1548)
+}
+point_count = 30
 
 [node name="Main" type="Node2D"]
 
@@ -32,78 +38,156 @@ script = ExtResource("2_0wfyh")
 [node name="RedLine" type="Path2D" parent="Tracks"]
 curve = SubResource("Curve2D_jyhfs")
 script = ExtResource("3_tefeu")
+line_color = Color(0.92941177, 0.105882354, 0.20784314, 1)
+
+[node name="Stations" type="Node2D" parent="Tracks/RedLine"]
+
+[node name="Bulvar Rokossovskogo (Бульвар Рокоссовского)" parent="Tracks/RedLine/Stations" instance=ExtResource("5_tbgi4")]
+position = Vector2(4161, 1061)
+
+[node name="Cherkizovskaya (Черкизовская)" parent="Tracks/RedLine/Stations" instance=ExtResource("5_tbgi4")]
+position = Vector2(4040, 1182)
+
+[node name="Preobrazhenskaya Ploshchad (Преображенская площадь)" parent="Tracks/RedLine/Stations" instance=ExtResource("5_tbgi4")]
+position = Vector2(3920, 1301)
+
+[node name="Sokolniki (Сокольники)" parent="Tracks/RedLine/Stations" instance=ExtResource("5_tbgi4")]
+position = Vector2(3800, 1421)
+
+[node name="Krasnoselskaya (Красносельская)" parent="Tracks/RedLine/Stations" instance=ExtResource("5_tbgi4")]
+position = Vector2(3680, 1540)
+
+[node name="Komsomolskaya (Комсомольская)" parent="Tracks/RedLine/Stations" instance=ExtResource("5_tbgi4")]
+position = Vector2(3547, 1672)
+
+[node name="Krasnye Vorota (Красные Ворота)" parent="Tracks/RedLine/Stations" instance=ExtResource("5_tbgi4")]
+position = Vector2(3380, 1840)
+
+[node name="Chistye Prudy (Чистые пруды)" parent="Tracks/RedLine/Stations" instance=ExtResource("5_tbgi4")]
+position = Vector2(3185, 2031)
+
+[node name="Lubyanka (Лубянка)" parent="Tracks/RedLine/Stations" instance=ExtResource("5_tbgi4")]
+position = Vector2(2808, 2120)
+
+[node name="Okhotny Ryad (Охотный ряд)" parent="Tracks/RedLine/Stations" instance=ExtResource("5_tbgi4")]
+position = Vector2(2634, 2293)
+
+[node name="Biblioteka Imeni Lenina (Библиотека имени Ленина)" parent="Tracks/RedLine/Stations" instance=ExtResource("5_tbgi4")]
+position = Vector2(2420, 2512)
+
+[node name="Kropotkinskaya (Кропоткинская)" parent="Tracks/RedLine/Stations" instance=ExtResource("5_tbgi4")]
+position = Vector2(2135, 2792)
+
+[node name="Park Kultury (Парк культуры)" parent="Tracks/RedLine/Stations" instance=ExtResource("5_tbgi4")]
+position = Vector2(1824, 3103)
+
+[node name="Frunzenskaya (Фрунзенская)" parent="Tracks/RedLine/Stations" instance=ExtResource("5_tbgi4")]
+position = Vector2(1701, 3229)
+
+[node name="Sportivnaya (Спортивная)" parent="Tracks/RedLine/Stations" instance=ExtResource("5_tbgi4")]
+position = Vector2(1579, 3350)
+
+[node name="Vorobyovy Gory (Воробьёвы горы)" parent="Tracks/RedLine/Stations" instance=ExtResource("5_tbgi4")]
+position = Vector2(1460, 3469)
+
+[node name="Universitet (Университет)" parent="Tracks/RedLine/Stations" instance=ExtResource("5_tbgi4")]
+position = Vector2(1340, 3590)
+
+[node name="Prospekt Vernadskogo (Проспект Вернадского)" parent="Tracks/RedLine/Stations" instance=ExtResource("5_tbgi4")]
+position = Vector2(1218, 3711)
+
+[node name="Yugo-Zapadnaya (Юго-Западная)" parent="Tracks/RedLine/Stations" instance=ExtResource("5_tbgi4")]
+position = Vector2(1098, 3831)
+
+[node name="Troparyovo (Тропарёво)" parent="Tracks/RedLine/Stations" instance=ExtResource("5_tbgi4")]
+position = Vector2(979, 3948)
+
+[node name="Rumyantsevo (Румянцево)" parent="Tracks/RedLine/Stations" instance=ExtResource("5_tbgi4")]
+position = Vector2(860, 4068)
+
+[node name="Salaryevo (Саларьево)" parent="Tracks/RedLine/Stations" instance=ExtResource("5_tbgi4")]
+position = Vector2(736, 4187)
 
 [node name="Train_01" parent="Tracks/RedLine" instance=ExtResource("4_tbgi4")]
 position = Vector2(4160, 1059)
 rotation = 2.360344
 
-[node name="Stations" type="Node2D" parent="."]
+[node name="BlueLine" type="Path2D" parent="Tracks"]
+curve = SubResource("Curve2D_o6xl0")
+script = ExtResource("3_tefeu")
+line_color = Color(0, 0.47058824, 0.7490196, 1)
 
-[node name="Bulvar Rokossovskogo (Бульвар Рокоссовского)" parent="Stations" instance=ExtResource("5_tbgi4")]
-position = Vector2(4161, 1061)
+[node name="Stations" type="Node2D" parent="Tracks/BlueLine"]
 
-[node name="Cherkizovskaya (Черкизовская)" parent="Stations" instance=ExtResource("5_tbgi4")]
-position = Vector2(4040, 1182)
+[node name="Pyatnitskoye Shosse (Пятницкое шоссе)" parent="Tracks/BlueLine/Stations" instance=ExtResource("5_tbgi4")]
+position = Vector2(188, 872)
 
-[node name="Preobrazhenskaya Ploshchad (Преображенская площадь)" parent="Stations" instance=ExtResource("5_tbgi4")]
-position = Vector2(3920, 1301)
+[node name="Mitino (Митино)" parent="Tracks/BlueLine/Stations" instance=ExtResource("5_tbgi4")]
+position = Vector2(188, 992)
 
-[node name="Sokolniki (Сокольники)" parent="Stations" instance=ExtResource("5_tbgi4")]
-position = Vector2(3800, 1421)
+[node name="Wolokolamskaya (Волоколамская)" parent="Tracks/BlueLine/Stations" instance=ExtResource("5_tbgi4")]
+position = Vector2(188, 1112)
 
-[node name="Krasnoselskaya (Красносельская)" parent="Stations" instance=ExtResource("5_tbgi4")]
-position = Vector2(3680, 1540)
+[node name="Mjakinino (Мякинино)" parent="Tracks/BlueLine/Stations" instance=ExtResource("5_tbgi4")]
+position = Vector2(188, 1232)
 
-[node name="Komsomolskaya (Комсомольская)" parent="Stations" instance=ExtResource("5_tbgi4")]
-position = Vector2(3547, 1672)
+[node name="Strogino (Строгино)" parent="Tracks/BlueLine/Stations" instance=ExtResource("5_tbgi4")]
+position = Vector2(188, 1352)
 
-[node name="Krasnye Vorota (Красные Ворота)" parent="Stations" instance=ExtResource("5_tbgi4")]
-position = Vector2(3380, 1840)
+[node name="Krylatskoje (Крылатское)" parent="Tracks/BlueLine/Stations" instance=ExtResource("5_tbgi4")]
+position = Vector2(188, 1472)
 
-[node name="Chistye Prudy (Чистые пруды)" parent="Stations" instance=ExtResource("5_tbgi4")]
-position = Vector2(3185, 2031)
+[node name="Molodjozhnaja (Молодёжная)" parent="Tracks/BlueLine/Stations" instance=ExtResource("5_tbgi4")]
+position = Vector2(188, 1592)
 
-[node name="Lubyanka (Лубянка)" parent="Stations" instance=ExtResource("5_tbgi4")]
-position = Vector2(2808, 2120)
+[node name="Kunzewskaja (Кунцевская)" parent="Tracks/BlueLine/Stations" instance=ExtResource("5_tbgi4")]
+position = Vector2(188, 1721)
 
-[node name="Okhotny Ryad (Охотный ряд)" parent="Stations" instance=ExtResource("5_tbgi4")]
-position = Vector2(2634, 2293)
+[node name="Slawjanski Bulwar (Славянский бульвар)" parent="Tracks/BlueLine/Stations" instance=ExtResource("5_tbgi4")]
+position = Vector2(428, 2220)
 
-[node name="Biblioteka Imeni Lenina (Библиотека имени Ленина)" parent="Stations" instance=ExtResource("5_tbgi4")]
-position = Vector2(2420, 2512)
+[node name="Park Pobedy (Парк Победы)" parent="Tracks/BlueLine/Stations" instance=ExtResource("5_tbgi4")]
+position = Vector2(668, 2460)
 
-[node name="Kropotkinskaya (Кропоткинская)" parent="Stations" instance=ExtResource("5_tbgi4")]
-position = Vector2(2135, 2792)
+[node name="Kijewskaja (Киевская)" parent="Tracks/BlueLine/Stations" instance=ExtResource("5_tbgi4")]
+position = Vector2(1549, 2510)
 
-[node name="Park Kultury (Парк культуры)" parent="Stations" instance=ExtResource("5_tbgi4")]
-position = Vector2(1824, 3103)
+[node name="Smolenskaja (Смоленская)" parent="Tracks/BlueLine/Stations" instance=ExtResource("5_tbgi4")]
+position = Vector2(1904, 2592)
 
-[node name="Frunzenskaya (Фрунзенская)" parent="Stations" instance=ExtResource("5_tbgi4")]
-position = Vector2(1701, 3229)
+[node name="Arbatskaja (Арбатская)" parent="Tracks/BlueLine/Stations" instance=ExtResource("5_tbgi4")]
+position = Vector2(2261, 2509)
 
-[node name="Sportivnaya (Спортивная)" parent="Stations" instance=ExtResource("5_tbgi4")]
-position = Vector2(1579, 3350)
+[node name="Ploschtschad Rewoljuzii (Площадь Революции)" parent="Tracks/BlueLine/Stations" instance=ExtResource("5_tbgi4")]
+position = Vector2(2636, 2510)
 
-[node name="Vorobyovy Gory (Воробьёвы горы)" parent="Stations" instance=ExtResource("5_tbgi4")]
-position = Vector2(1460, 3469)
+[node name="Kurskaja (Курская)" parent="Tracks/BlueLine/Stations" instance=ExtResource("5_tbgi4")]
+position = Vector2(3585, 2427)
 
-[node name="Universitet (Университет)" parent="Stations" instance=ExtResource("5_tbgi4")]
-position = Vector2(1340, 3590)
+[node name="Baumanskaja (Бауманская)" parent="Tracks/BlueLine/Stations" instance=ExtResource("5_tbgi4")]
+position = Vector2(3744, 2268)
 
-[node name="Prospekt Vernadskogo (Проспект Вернадского)" parent="Stations" instance=ExtResource("5_tbgi4")]
-position = Vector2(1218, 3711)
+[node name="Elektrosawodskaja (Электрозаводская)" parent="Tracks/BlueLine/Stations" instance=ExtResource("5_tbgi4")]
+position = Vector2(3864, 2148)
 
-[node name="Yugo-Zapadnaya (Юго-Западная)" parent="Stations" instance=ExtResource("5_tbgi4")]
-position = Vector2(1098, 3831)
+[node name="Semjonowskaja (Семёновская)" parent="Tracks/BlueLine/Stations" instance=ExtResource("5_tbgi4")]
+position = Vector2(3984, 2028)
 
-[node name="Troparyovo (Тропарёво)" parent="Stations" instance=ExtResource("5_tbgi4")]
-position = Vector2(979, 3948)
+[node name="Partisanskaja (Партизанская)" parent="Tracks/BlueLine/Stations" instance=ExtResource("5_tbgi4")]
+position = Vector2(4104, 1908)
 
-[node name="Rumyantsevo (Румянцево)" parent="Stations" instance=ExtResource("5_tbgi4")]
-position = Vector2(860, 4068)
+[node name="Ismailowskaja (Измайловская)" parent="Tracks/BlueLine/Stations" instance=ExtResource("5_tbgi4")]
+position = Vector2(4224, 1788)
 
-[node name="Salaryevo (Саларьево)" parent="Stations" instance=ExtResource("5_tbgi4")]
-position = Vector2(736, 4187)
+[node name="Perwomaiskaja (Первомайская)" parent="Tracks/BlueLine/Stations" instance=ExtResource("5_tbgi4")]
+position = Vector2(4344, 1668)
+
+[node name="Schtschjolkowskaja (Щёлковская)" parent="Tracks/BlueLine/Stations" instance=ExtResource("5_tbgi4")]
+position = Vector2(4464, 1548)
+
+[node name="Train_01" parent="Tracks/BlueLine" instance=ExtResource("4_tbgi4")]
+position = Vector2(188, 872)
+rotation = 1.5791994
 
 [node name="UI" type="CanvasLayer" parent="."]
 
