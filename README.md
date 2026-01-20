@@ -63,5 +63,5 @@ Main (Node2D)
 │       │   └── Schtschjolkowskaja (Щёлковская) (station.tscn)
 │       └── Train_01 (train.tscn)
 └── UI (CanvasLayer)
-    └── TextureButton (TextureButton)
+	└── TextureButton (TextureButton)
 ```

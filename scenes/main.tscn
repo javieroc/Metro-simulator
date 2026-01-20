@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bkyelsl6agbg3"]
+[gd_scene load_steps=11 format=3 uid="uid://bkyelsl6agbg3"]
 
 [ext_resource type="Texture2D" uid="uid://dv65revb72s3x" path="res://Moscow_metro_map_v2.svg" id="1_jyhfs"]
 [ext_resource type="Script" uid="uid://udywnql2x2y4" path="res://scripts/camera_2d.gd" id="2_0wfyh"]
@@ -19,6 +19,12 @@ _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 188, 872, 0, 0, 0, 0, 187, 991, 0, 0, 0, 0, 186, 1110, 0, 0, 0, 0, 188, 1232, 0, 0, 0, 0, 188, 1352, 0, 0, 0, 0, 188, 1472, 0, 0, 0, 0, 188, 1592, 0, 0, 0, 0, 188, 1721, -8.692898, -37.255276, 8.692898, 37.255276, 196, 1973, 0, 0, 0, 0, 428, 2220, 0, 0, 0, 0, 667, 2458, -68.18698, -5.098092, 68.18698, 5.098092, 765, 2512, 0, 0, 0, 0, 1550, 2509, -31.003462, -26.38898, 31.003462, 26.38898, 1620, 2539, -49.6737, -4.96737, 49.6737, 4.96737, 1717, 2592, 0, 0, 0, 0, 1904, 2592, 0, 0, 0, 0, 2079, 2592, -20.348318, 26.333117, 20.348318, -26.333117, 2147, 2566, -39.739067, 2.8727036, 39.739067, -2.8727036, 2262, 2508, 0, 0, 0, 0, 2636, 2510, 0, 0, 0, 0, 3457, 2512, -21.11002, 17.410324, 21.11002, -17.410324, 3519, 2489, 0, 0, 0, 0, 3585, 2427, 0, 0, 0, 0, 3744, 2268, 0, 0, 0, 0, 3864, 2148, 0, 0, 0, 0, 3984, 2028, 0, 0, 0, 0, 4104, 1908, 0, 0, 0, 0, 4224, 1788, 0, 0, 0, 0, 4344, 1668, 0, 0, 0, 0, 4464, 1548)
 }
 point_count = 30
+
+[sub_resource type="Curve2D" id="Curve2D_tipki"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 1180, 776, 0, 0, 0, 0, 1180, 896, -45.76696, -44.897964, 45.76696, 44.897964, 1220, 994, 0, 0, 0, 0, 1300, 1072, 0, 0, 0, 0, 1420, 1192, 0, 0, 0, 0, 1540, 1312, 0, 0, 0, 0, 1660, 1432, 0, 0, 0, 0, 1780, 1549, 0, 0, 0, 0, 2000, 1768, 0, 0, 0, 0, 2184, 1949, 0, 0, 0, 0, 2634, 2400, -66.93531, -67.618324, 66.93531, 67.618324, 2945, 2714, -10.86531, -69.39778, 10.86531, 69.39778, 2992, 2857, 0, 0, 0, 0, 3028, 2940, 0, 0, 0, 0, 3300, 3208, 0, 0, 0, 0, 3580, 3488, -43.385178, -47.117237, 43.385178, 47.117237, 3639, 3548, 0, 0, 0, 0, 3672, 3660, 0, 0, 0, 0, 3672, 3800, 0, 0, 0, 0, 3672, 4111, 0, 0, 0, 0, 3672, 4260, 0, 0, 0, 0, 3672, 4380, 0, 0, 0, 0, 3672, 4500, 0, 0, 0, 0, 3672, 4533, -59.26532, -57.672165, 59.26532, 57.672165, 3728, 4636, 0, 0, 0, 0, 3848, 4753, -60.072815, -0.89929366, 60.072815, 0.89929366, 3941, 4798, 0, 0, 0, 0, 4088, 4796)
+}
+point_count = 28
 
 [node name="Main" type="Node2D"]
 
@@ -188,6 +194,83 @@ position = Vector2(4464, 1548)
 [node name="Train_01" parent="Tracks/BlueLine" instance=ExtResource("4_tbgi4")]
 position = Vector2(188, 872)
 rotation = 1.5791994
+
+[node name="GreenLine" type="Path2D" parent="Tracks"]
+curve = SubResource("Curve2D_tipki")
+script = ExtResource("3_tefeu")
+line_color = Color(0.26666668, 0.72156864, 0.36078432, 1)
+
+[node name="Stations" type="Node2D" parent="Tracks/GreenLine"]
+
+[node name="Retschno wokzal (Речной вокзал)" parent="Tracks/GreenLine/Stations" instance=ExtResource("5_tbgi4")]
+position = Vector2(1180, 776)
+
+[node name="Wodny stadion (Водный стадион)" parent="Tracks/GreenLine/Stations" instance=ExtResource("5_tbgi4")]
+position = Vector2(1180, 896)
+
+[node name="Woikowskaja (Войковская)" parent="Tracks/GreenLine/Stations" instance=ExtResource("5_tbgi4")]
+position = Vector2(1300, 1072)
+
+[node name="Sokol (Сокол)" parent="Tracks/GreenLine/Stations" instance=ExtResource("5_tbgi4")]
+position = Vector2(1420, 1192)
+
+[node name="Aeroport (Аэропорт)" parent="Tracks/GreenLine/Stations" instance=ExtResource("5_tbgi4")]
+position = Vector2(1540, 1312)
+
+[node name="Dinamo (Динамо)" parent="Tracks/GreenLine/Stations" instance=ExtResource("5_tbgi4")]
+position = Vector2(1660, 1432)
+
+[node name="Belorusskaja (Белорусская)" parent="Tracks/GreenLine/Stations" instance=ExtResource("5_tbgi4")]
+position = Vector2(1780, 1549)
+
+[node name="Majakowskaja (Маяковская)" parent="Tracks/GreenLine/Stations" instance=ExtResource("5_tbgi4")]
+position = Vector2(2000, 1768)
+
+[node name="Twerskaja (Тверская)" parent="Tracks/GreenLine/Stations" instance=ExtResource("5_tbgi4")]
+position = Vector2(2184, 1949)
+
+[node name="Teatralnaja (Театральная)" parent="Tracks/GreenLine/Stations" instance=ExtResource("5_tbgi4")]
+position = Vector2(2635, 2402)
+
+[node name="Nowokuznezkaja (Новокузнецкая)" parent="Tracks/GreenLine/Stations" instance=ExtResource("5_tbgi4")]
+position = Vector2(2992, 2858)
+
+[node name="Pawelezkaja (Павелецкая)" parent="Tracks/GreenLine/Stations" instance=ExtResource("5_tbgi4")]
+position = Vector2(3300, 3208)
+
+[node name="Awtosawodskaja (Автозаводская)" parent="Tracks/GreenLine/Stations" instance=ExtResource("5_tbgi4")]
+position = Vector2(3580, 3488)
+
+[node name="Technopark (Технопарк)" parent="Tracks/GreenLine/Stations" instance=ExtResource("5_tbgi4")]
+position = Vector2(3672, 3660)
+
+[node name="Kolomenskaja (Коломенская)" parent="Tracks/GreenLine/Stations" instance=ExtResource("5_tbgi4")]
+position = Vector2(3672, 3800)
+
+[node name="Kaschirskaja (Каширская)" parent="Tracks/GreenLine/Stations" instance=ExtResource("5_tbgi4")]
+position = Vector2(3672, 4111)
+
+[node name="Kantemirowskaja (Кантемировская)" parent="Tracks/GreenLine/Stations" instance=ExtResource("5_tbgi4")]
+position = Vector2(3672, 4260)
+
+[node name="zarizyno (Царицыно)" parent="Tracks/GreenLine/Stations" instance=ExtResource("5_tbgi4")]
+position = Vector2(3672, 4380)
+
+[node name="Orechowo (Орехово)" parent="Tracks/GreenLine/Stations" instance=ExtResource("5_tbgi4")]
+position = Vector2(3672, 4500)
+
+[node name="Domodedowskaja (Домодедовская)" parent="Tracks/GreenLine/Stations" instance=ExtResource("5_tbgi4")]
+position = Vector2(3728, 4636)
+
+[node name="Krasnogwardeiskaja (Красногвардейская)" parent="Tracks/GreenLine/Stations" instance=ExtResource("5_tbgi4")]
+position = Vector2(3847, 4756)
+
+[node name="Alma-Atinskaja (Алма-Атинская)" parent="Tracks/GreenLine/Stations" instance=ExtResource("5_tbgi4")]
+position = Vector2(4088, 4796)
+
+[node name="Train_01" parent="Tracks/GreenLine" instance=ExtResource("4_tbgi4")]
+position = Vector2(1180, 776)
+rotation = 1.5707964
 
 [node name="UI" type="CanvasLayer" parent="."]
 
