@@ -1,12 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://bkyelsl6agbg3"]
+[gd_scene load_steps=10 format=3 uid="uid://bkyelsl6agbg3"]
 
-[ext_resource type="Texture2D" uid="uid://dv65revb72s3x" path="res://Moscow_metro_map_v2.svg" id="1_jyhfs"]
+[ext_resource type="Texture2D" uid="uid://j3tu0kfd84r4" path="res://Moscow_metro_map_v3.svg" id="1_tbgi4"]
 [ext_resource type="Script" uid="uid://udywnql2x2y4" path="res://scripts/camera_2d.gd" id="2_0wfyh"]
 [ext_resource type="Script" uid="uid://e3camb0ai8ha" path="res://scripts/metro_line.gd" id="3_tefeu"]
 [ext_resource type="PackedScene" uid="uid://besj5cuo7aaij" path="res://scenes/train.tscn" id="4_tbgi4"]
 [ext_resource type="PackedScene" uid="uid://b73xxi1iignow" path="res://scenes/station.tscn" id="5_tbgi4"]
-[ext_resource type="Texture2D" uid="uid://biueyctayll8g" path="res://UI/menu_botton.svg" id="6_o6xl0"]
-[ext_resource type="Texture2D" uid="uid://cs7ckdxanc1c" path="res://UI/menu_button_pressed.svg" id="7_tipki"]
+[ext_resource type="Texture2D" uid="uid://cugr13wxe8ixr" path="res://UI/bg.jpeg" id="6_tefeu"]
 
 [sub_resource type="Curve2D" id="Curve2D_jyhfs"]
 _data = {
@@ -34,7 +33,7 @@ point_count = 28
 texture_filter = 1
 offset_right = 5080.0
 offset_bottom = 6480.0
-texture = ExtResource("1_jyhfs")
+texture = ExtResource("1_tbgi4")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 script = ExtResource("2_0wfyh")
@@ -274,8 +273,18 @@ rotation = 1.5707964
 
 [node name="UI" type="CanvasLayer" parent="."]
 
-[node name="TextureButton" type="TextureButton" parent="UI"]
+[node name="HUDRoot" type="Control" parent="UI"]
+layout_mode = 3
+anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
-texture_normal = ExtResource("6_o6xl0")
-texture_pressed = ExtResource("7_tipki")
+
+[node name="Background" type="CanvasLayer" parent="."]
+layer = -10
+
+[node name="TextureRect" type="TextureRect" parent="Background"]
+offset_right = 6956.0
+offset_bottom = 6447.0
+texture = ExtResource("6_tefeu")
+expand_mode = 1
+stretch_mode = 1
