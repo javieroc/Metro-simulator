@@ -88,5 +88,7 @@ Main (Node2D)
 │       │   └── Alma-Atinskaja (Алма-Атинская) (station.tscn)
 │       └── Train_01 (train.tscn)
 └── UI (CanvasLayer)
-	└── TextureButton (TextureButton)
+	└── HUDRoot (Control)
+└── Background (CanvasLayer)
+	└── TextureRect (TextureRect)
 ```

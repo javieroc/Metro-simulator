@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://di3qvf8lx4uce"
-path="res://.godot/imported/button.svg-728cc5db1743cd63c689c1d9d52d4a3f.ctex"
+uid="uid://da8esv04y6tn1"
+path="res://.godot/imported/start_blue_button.png-aef8c1a26a0a2cc79e51cec5911bb065.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://UI/button.svg"
-dest_files=["res://.godot/imported/button.svg-728cc5db1743cd63c689c1d9d52d4a3f.ctex"]
+source_file="res://UI/start_blue_button.png"
+dest_files=["res://.godot/imported/start_blue_button.png-aef8c1a26a0a2cc79e51cec5911bb065.ctex"]
 
 [params]
 
@@ -38,6 +38,3 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
-svg/scale=1.0
-editor/scale_with_editor_scale=false
-editor/convert_colors_with_editor_theme=false
