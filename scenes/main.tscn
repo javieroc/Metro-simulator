@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bkyelsl6agbg3"]
+[gd_scene load_steps=16 format=3 uid="uid://bkyelsl6agbg3"]
 
 [ext_resource type="Texture2D" uid="uid://j3tu0kfd84r4" path="res://Moscow_metro_map_v3.svg" id="1_tbgi4"]
 [ext_resource type="Script" uid="uid://udywnql2x2y4" path="res://scripts/camera_2d.gd" id="2_0wfyh"]
@@ -8,8 +8,10 @@
 [ext_resource type="Texture2D" uid="uid://cugr13wxe8ixr" path="res://UI/bg.jpeg" id="6_tefeu"]
 [ext_resource type="Texture2D" uid="uid://darjwuhts48hl" path="res://UI/frame_orange.png" id="6_tipki"]
 [ext_resource type="Texture2D" uid="uid://da8esv04y6tn1" path="res://UI/start_blue_button.png" id="7_choun"]
+[ext_resource type="Script" uid="uid://jat0y0c4vruq" path="res://scripts/ui_buttons.gd" id="7_eb6dy"]
 [ext_resource type="Texture2D" uid="uid://him8emsujyf4" path="res://UI/stats_orange_button.png" id="8_ya4ey"]
 [ext_resource type="Texture2D" uid="uid://d4v3kfjuqm0r" path="res://UI/menu_orange_button.png" id="9_eb6dy"]
+[ext_resource type="AudioStream" uid="uid://bdb58v2uraejw" path="res://Sounds/click.mp3" id="10_ya4ey"]
 
 [sub_resource type="Curve2D" id="Curve2D_jyhfs"]
 _data = {
@@ -283,12 +285,13 @@ anchor_left = 0.293
 anchor_top = 1.0
 anchor_right = 0.67
 anchor_bottom = 1.0
-offset_left = 88.46399
+offset_left = 78.46399
 offset_top = -89.0
-offset_right = -43.840027
+offset_right = -71.84003
 offset_bottom = -28.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("7_eb6dy")
 
 [node name="Frame" type="TextureRect" parent="UI/BottomNav"]
 layout_mode = 1
@@ -338,6 +341,15 @@ size_flags_vertical = 4
 texture_normal = ExtResource("9_eb6dy")
 ignore_texture_size = true
 stretch_mode = 0
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="UI/BottomNav"]
+position = Vector2(-416, -559)
+stream = ExtResource("10_ya4ey")
+bus = &"UI"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="UI/BottomNav"]
+stream = ExtResource("10_ya4ey")
+bus = &"UI"
 
 [node name="Background" type="CanvasLayer" parent="."]
 layer = -10
