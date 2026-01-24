@@ -1,0 +1,101 @@
+[gd_scene load_steps=10 format=3 uid="uid://cl8bx6vhou1v3"]
+
+[ext_resource type="Texture2D" uid="uid://cugr13wxe8ixr" path="res://UI/bg.jpeg" id="1_6ypks"]
+[ext_resource type="Script" uid="uid://cen1ly1yo2sj6" path="res://scripts/main_menu.gd" id="1_ok243"]
+[ext_resource type="Texture2D" uid="uid://b4hy851blscuj" path="res://UI/MainFrame.svg" id="2_n61mk"]
+[ext_resource type="Texture2D" uid="uid://cu0k0ot7f6ot2" path="res://logo.svg" id="3_r2kcx"]
+[ext_resource type="Texture2D" uid="uid://da8esv04y6tn1" path="res://UI/start_blue_button.png" id="5_ok243"]
+[ext_resource type="Texture2D" uid="uid://gyuesd1kyu7w" path="res://UI/options_orange_button.png" id="6_0pljo"]
+[ext_resource type="Texture2D" uid="uid://b5b4i5st5yc4f" path="res://UI/quit_orange_button.png" id="7_u8wmu"]
+[ext_resource type="AudioStream" uid="uid://ck2qrnakoglcb" path="res://Sounds/hover.mp3" id="8_0pljo"]
+[ext_resource type="AudioStream" uid="uid://bdb58v2uraejw" path="res://Sounds/click.mp3" id="9_u8wmu"]
+
+[node name="SplashScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ok243")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_6ypks")
+stretch_mode = 1
+
+[node name="MainFrame" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -384.0
+offset_top = -292.0
+offset_right = 384.0
+offset_bottom = 292.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_n61mk")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainFrame"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -343.5
+offset_top = -154.0
+offset_right = 343.5
+offset_bottom = 134.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Logo" type="TextureRect" parent="MainFrame/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 2
+size_flags_stretch_ratio = 4.52
+texture = ExtResource("3_r2kcx")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainFrame/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+theme_override_constants/separation = 12
+alignment = 1
+
+[node name="Start" type="TextureButton" parent="MainFrame/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("5_ok243")
+
+[node name="Options" type="TextureButton" parent="MainFrame/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("6_0pljo")
+
+[node name="Quit" type="TextureButton" parent="MainFrame/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("7_u8wmu")
+
+[node name="hover_sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_0pljo")
+bus = &"UI"
+
+[node name="click_sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_u8wmu")
+bus = &"UI"
+
+[connection signal="focus_entered" from="MainFrame/VBoxContainer/VBoxContainer/Start" to="." method="_on_start_focus_entered"]
+[connection signal="mouse_entered" from="MainFrame/VBoxContainer/VBoxContainer/Start" to="." method="_on_start_mouse_entered"]
+[connection signal="pressed" from="MainFrame/VBoxContainer/VBoxContainer/Start" to="." method="_on_start_pressed"]
+[connection signal="mouse_entered" from="MainFrame/VBoxContainer/VBoxContainer/Options" to="." method="_on_options_mouse_entered"]
+[connection signal="pressed" from="MainFrame/VBoxContainer/VBoxContainer/Options" to="." method="_on_options_pressed"]
+[connection signal="mouse_entered" from="MainFrame/VBoxContainer/VBoxContainer/Quit" to="." method="_on_quit_mouse_entered"]
+[connection signal="pressed" from="MainFrame/VBoxContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]

@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="MetroSimulator"
-run/main_scene="uid://bkyelsl6agbg3"
+run/main_scene="uid://cl8bx6vhou1v3"
 config/features=PackedStringArray("4.5", "Mobile")
 config/icon="res://icon.svg"
 

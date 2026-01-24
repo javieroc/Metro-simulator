@@ -87,8 +87,22 @@ Main (Node2D)
 │       │   ├── Krasnogwardeiskaja (Красногвардейская) (station.tscn)
 │       │   └── Alma-Atinskaja (Алма-Атинская) (station.tscn)
 │       └── Train_01 (train.tscn)
-└── UI (CanvasLayer)
-	└── HUDRoot (Control)
 └── Background (CanvasLayer)
 	└── TextureRect (TextureRect)
+```
+
+## Boot Scene Hierarchy
+
+Here is the graphical hierarchy of the nodes in the boot scene:
+
+```
+SplashScreen (Control)
+├── Background (TextureRect)
+├── MainFrame (TextureRect)
+│   └── VBoxContainer (VBoxContainer)
+│       ├── Logo (TextureRect)
+│       └── VBoxContainer (VBoxContainer)
+│           ├── Start (TextureButton)
+│           ├── Options (TextureButton)
+│           └── Quit (TextureButton)
 ```

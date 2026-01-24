@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://bkyelsl6agbg3"]
+[gd_scene load_steps=10 format=3 uid="uid://bkyelsl6agbg3"]
 
 [ext_resource type="Texture2D" uid="uid://j3tu0kfd84r4" path="res://Moscow_metro_map_v3.svg" id="1_tbgi4"]
 [ext_resource type="Script" uid="uid://udywnql2x2y4" path="res://scripts/camera_2d.gd" id="2_0wfyh"]
@@ -6,12 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://besj5cuo7aaij" path="res://scenes/train.tscn" id="4_tbgi4"]
 [ext_resource type="PackedScene" uid="uid://b73xxi1iignow" path="res://scenes/station.tscn" id="5_tbgi4"]
 [ext_resource type="Texture2D" uid="uid://cugr13wxe8ixr" path="res://UI/bg.jpeg" id="6_tefeu"]
-[ext_resource type="Texture2D" uid="uid://darjwuhts48hl" path="res://UI/frame_orange.png" id="6_tipki"]
-[ext_resource type="Texture2D" uid="uid://da8esv04y6tn1" path="res://UI/start_blue_button.png" id="7_choun"]
-[ext_resource type="Script" uid="uid://jat0y0c4vruq" path="res://scripts/ui_buttons.gd" id="7_eb6dy"]
-[ext_resource type="Texture2D" uid="uid://him8emsujyf4" path="res://UI/stats_orange_button.png" id="8_ya4ey"]
-[ext_resource type="Texture2D" uid="uid://d4v3kfjuqm0r" path="res://UI/menu_orange_button.png" id="9_eb6dy"]
-[ext_resource type="AudioStream" uid="uid://bdb58v2uraejw" path="res://Sounds/click.mp3" id="10_ya4ey"]
 
 [sub_resource type="Curve2D" id="Curve2D_jyhfs"]
 _data = {
@@ -276,80 +270,6 @@ position = Vector2(4088, 4796)
 [node name="Train_01" parent="Tracks/GreenLine" instance=ExtResource("4_tbgi4")]
 position = Vector2(1180, 776)
 rotation = 1.5707964
-
-[node name="UI" type="CanvasLayer" parent="."]
-
-[node name="BottomNav" type="Control" parent="UI"]
-layout_mode = 3
-anchor_left = 0.293
-anchor_top = 1.0
-anchor_right = 0.67
-anchor_bottom = 1.0
-offset_left = 78.46399
-offset_top = -89.0
-offset_right = -71.84003
-offset_bottom = -28.0
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("7_eb6dy")
-
-[node name="Frame" type="TextureRect" parent="UI/BottomNav"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("6_tipki")
-expand_mode = 2
-
-[node name="Buttons" type="HBoxContainer" parent="UI/BottomNav"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -151.0
-offset_top = -30.0
-offset_right = 151.0
-offset_bottom = 30.0
-grow_horizontal = 2
-grow_vertical = 2
-alignment = 1
-
-[node name="Start" type="TextureButton" parent="UI/BottomNav/Buttons"]
-custom_minimum_size = Vector2(80, 40)
-layout_mode = 2
-size_flags_vertical = 4
-texture_normal = ExtResource("7_choun")
-ignore_texture_size = true
-stretch_mode = 0
-
-[node name="Stats" type="TextureButton" parent="UI/BottomNav/Buttons"]
-custom_minimum_size = Vector2(80, 40)
-layout_mode = 2
-size_flags_vertical = 4
-texture_normal = ExtResource("8_ya4ey")
-ignore_texture_size = true
-stretch_mode = 0
-
-[node name="Menu" type="TextureButton" parent="UI/BottomNav/Buttons"]
-custom_minimum_size = Vector2(80, 40)
-layout_mode = 2
-size_flags_vertical = 4
-texture_normal = ExtResource("9_eb6dy")
-ignore_texture_size = true
-stretch_mode = 0
-
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="UI/BottomNav"]
-position = Vector2(-416, -559)
-stream = ExtResource("10_ya4ey")
-bus = &"UI"
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="UI/BottomNav"]
-stream = ExtResource("10_ya4ey")
-bus = &"UI"
 
 [node name="Background" type="CanvasLayer" parent="."]
 layer = -10
