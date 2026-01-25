@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bkyelsl6agbg3"]
+[gd_scene load_steps=14 format=3 uid="uid://bkyelsl6agbg3"]
 
 [ext_resource type="Texture2D" uid="uid://j3tu0kfd84r4" path="res://Moscow_metro_map_v3.svg" id="1_tbgi4"]
 [ext_resource type="Script" uid="uid://udywnql2x2y4" path="res://scripts/camera_2d.gd" id="2_0wfyh"]
@@ -6,6 +6,10 @@
 [ext_resource type="PackedScene" uid="uid://besj5cuo7aaij" path="res://scenes/train.tscn" id="4_tbgi4"]
 [ext_resource type="PackedScene" uid="uid://b73xxi1iignow" path="res://scenes/station.tscn" id="5_tbgi4"]
 [ext_resource type="Texture2D" uid="uid://cugr13wxe8ixr" path="res://UI/bg.jpeg" id="6_tefeu"]
+[ext_resource type="AudioStream" uid="uid://cf62tyeyjsh6n" path="res://Music/on_the_way_home-468318.mp3" id="7_choun"]
+[ext_resource type="Texture2D" uid="uid://bx44rt30hcxig" path="res://UI/sound_on_orange_button.png" id="8_ya4ey"]
+[ext_resource type="Texture2D" uid="uid://bwlkqiics0qat" path="res://UI/sound_off_orange_button.png" id="9_eb6dy"]
+[ext_resource type="Script" uid="uid://duoqm3w3av5a8" path="res://scripts/music_toggle.gd" id="10_trceg"]
 
 [sub_resource type="Curve2D" id="Curve2D_jyhfs"]
 _data = {
@@ -281,3 +285,24 @@ offset_bottom = 6447.0
 texture = ExtResource("6_tefeu")
 expand_mode = 1
 stretch_mode = 1
+
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_choun")
+autoplay = true
+bus = &"Music"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="MusicToggle" type="TextureButton" parent="CanvasLayer"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 40.0
+grow_horizontal = 0
+mouse_default_cursor_shape = 2
+script = ExtResource("10_trceg")
+icon_on = ExtResource("8_ya4ey")
+icon_off = ExtResource("9_eb6dy")
+
+[connection signal="toggled" from="CanvasLayer/MusicToggle" to="CanvasLayer/MusicToggle" method="_on_toggled"]
