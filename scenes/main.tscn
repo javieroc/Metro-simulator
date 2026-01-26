@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bkyelsl6agbg3"]
+[gd_scene load_steps=15 format=3 uid="uid://bkyelsl6agbg3"]
 
 [ext_resource type="Texture2D" uid="uid://j3tu0kfd84r4" path="res://Moscow_metro_map_v3.svg" id="1_tbgi4"]
 [ext_resource type="Script" uid="uid://udywnql2x2y4" path="res://scripts/camera_2d.gd" id="2_0wfyh"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://bx44rt30hcxig" path="res://UI/sound_on_orange_button.png" id="8_ya4ey"]
 [ext_resource type="Texture2D" uid="uid://bwlkqiics0qat" path="res://UI/sound_off_orange_button.png" id="9_eb6dy"]
 [ext_resource type="Script" uid="uid://duoqm3w3av5a8" path="res://scripts/music_toggle.gd" id="10_trceg"]
+[ext_resource type="Script" uid="uid://da2ge73ygogvx" path="res://scripts/time_label.gd" id="11_ya4ey"]
 
 [sub_resource type="Curve2D" id="Curve2D_jyhfs"]
 _data = {
@@ -293,16 +294,26 @@ bus = &"Music"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="MusicToggle" type="TextureButton" parent="CanvasLayer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer"]
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
 offset_left = -40.0
 offset_bottom = 40.0
 grow_horizontal = 0
+theme_override_constants/separation = 8
+
+[node name="Label" type="Label" parent="CanvasLayer/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9529412, 0.54901963, 0.23921569, 1)
+script = ExtResource("11_ya4ey")
+theme_override_colors/font_color = Color(0.9529412, 0.54901963, 0.23921569, 1)
+
+[node name="MusicToggle" type="TextureButton" parent="CanvasLayer/HBoxContainer"]
+layout_mode = 2
 mouse_default_cursor_shape = 2
 script = ExtResource("10_trceg")
 icon_on = ExtResource("8_ya4ey")
 icon_off = ExtResource("9_eb6dy")
 
-[connection signal="toggled" from="CanvasLayer/MusicToggle" to="CanvasLayer/MusicToggle" method="_on_toggled"]
+[connection signal="toggled" from="CanvasLayer/HBoxContainer/MusicToggle" to="CanvasLayer/HBoxContainer/MusicToggle" method="_on_toggled"]
