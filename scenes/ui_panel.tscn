@@ -1,0 +1,64 @@
+[gd_scene load_steps=4 format=3 uid="uid://fviyil048il5"]
+
+[ext_resource type="Script" path="res://scripts/ui_panel.gd" id="1_abcde"]
+[ext_resource type="Texture2D" uid="uid://bi1ur8sxy8jpi" path="res://UI/panel_frame.png" id="2_ui_panel_texture"]
+[ext_resource type="FontFile" uid="uid://wdmqudrpc2yx" path="res://font/Orbitron-Bold.ttf" id="3_orbitron_bold"]
+
+[node name="UIPanel" type="NinePatchRect"]
+modulate = Color(0.9529412, 0.54901963, 0.23921569, 1)
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_ui_panel_texture")
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+script = ExtResource("1_abcde")
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = -8.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="StationName" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_orbitron_bold")
+theme_override_font_sizes/font_size = 18
+text = "Station:"
+autowrap_mode = 2
+
+[node name="Passengers" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_orbitron_bold")
+theme_override_font_sizes/font_size = 18
+text = "Passengers:"
+autowrap_mode = 2
+
+[node name="Line" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_orbitron_bold")
+theme_override_font_sizes/font_size = 18
+text = "Line:"
+autowrap_mode = 2
+
+[node name="NextTrain" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_orbitron_bold")
+theme_override_font_sizes/font_size = 18
+text = "Next Train:"
+autowrap_mode = 2

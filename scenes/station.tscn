@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://b73xxi1iignow"]
+[gd_scene load_steps=3 format=3 uid="uid://b73xxi1iignow"]
 
 [ext_resource type="Script" uid="uid://dqxik4fjocfnu" path="res://scripts/station.gd" id="1_0r0hh"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rod8h"]
 
 [node name="Station" type="Node2D" groups=["stations"]]
 script = ExtResource("1_0r0hh")
@@ -10,3 +12,11 @@ offset_right = 40.0
 offset_bottom = 23.0
 
 [node name="Icon" type="Node2D" parent="."]
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_rod8h")
+debug_color = Color(0.3499394, 0.49862397, 0.95913154, 0.41960785)
+
+[connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]
