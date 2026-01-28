@@ -322,5 +322,6 @@ icon_on = ExtResource("8_ya4ey")
 icon_off = ExtResource("9_eb6dy")
 
 [node name="UIPanel" parent="CanvasLayer" instance=ExtResource("13_trceg")]
+visible = false
 
 [connection signal="toggled" from="CanvasLayer/HBoxContainer/MusicToggle" to="CanvasLayer/HBoxContainer/MusicToggle" method="_on_toggled"]
