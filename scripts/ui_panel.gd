@@ -10,8 +10,6 @@ func _ready():
 	pass
 
 
-# This function uses 'await' to pause execution and wait for the layout to update after changing the panel width.
-# This ensures the height is calculated based on the correct width, resolving issues with text wrapping and panel size.
 func update_info(station):
 	if station:
 		station_name_label.text = "Station: " + station.station_name
