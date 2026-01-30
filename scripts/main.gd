@@ -12,13 +12,7 @@ func connect_all_station_signals():
 			station.station_clicked.connect(_on_station_clicked)
 
 func _on_station_clicked(station):
-	show_station_panel(station)
-
-func show_station_panel(station):
-	station_panel.update_info(station)
-	var screen_pos = get_viewport().get_canvas_transform() * station.global_position
-	station_panel.position = screen_pos + Vector2(30, -station_panel.size.y * 0.5)
-	station_panel.show()
+	station_panel.display_info_for(station)
 
 func _unhandled_input(event):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:

@@ -1,0 +1,41 @@
+[gd_scene load_steps=3 format=3 uid="uid://bbcnjgoldp4s0"]
+
+[ext_resource type="Script" uid="uid://ckagnfb7lkrut" path="res://scripts/station_info.gd" id="1_station_info_script"]
+[ext_resource type="FontFile" uid="uid://wdmqudrpc2yx" path="res://font/Orbitron-Bold.ttf" id="2_orbitron_bold"]
+
+[node name="StationInfo" type="VBoxContainer"]
+offset_right = 1.0
+offset_bottom = 135.0
+script = ExtResource("1_station_info_script")
+
+[node name="StationName" type="Label" parent="."]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_orbitron_bold")
+theme_override_font_sizes/font_size = 18
+text = "Station:"
+autowrap_mode = 2
+
+[node name="Passengers" type="Label" parent="."]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_orbitron_bold")
+theme_override_font_sizes/font_size = 18
+text = "Passengers:"
+autowrap_mode = 2
+
+[node name="Line" type="Label" parent="."]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_orbitron_bold")
+theme_override_font_sizes/font_size = 18
+text = "Line:"
+autowrap_mode = 2
+
+[node name="NextTrain" type="Label" parent="."]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_orbitron_bold")
+theme_override_font_sizes/font_size = 18
+text = "Next Train:"
+autowrap_mode = 2

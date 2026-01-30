@@ -1,45 +1,40 @@
 extends NinePatchRect
 
-@onready var station_name_label = $VBoxContainer/StationName
-@onready var passengers_label = $VBoxContainer/Passengers
-@onready var line_label = $VBoxContainer/Line
-@onready var next_train_label = $VBoxContainer/NextTrain
+const StationInfo = preload("res://scenes/station_info.tscn")
+#const TrainInfo = preload("res://scenes/train_info.tscn")
 
-func _ready():
-	# This panel's size is controlled by the update_info() function.
-	pass
+@onready var content_container = $ContentContainer
+var current_content = null
 
+func display_info_for(target):
+	# Clear previous content
+	if current_content:
+		current_content.queue_free()
+		current_content = null
 
-func update_info(station):
-	if station:
-		station_name_label.text = "Station: " + station.station_name
-		passengers_label.text = "Passengers: " + str(station.waiting_passengers)
-		line_label.text = "Line: " + station.line.name
-		next_train_label.text = "Next Train: Calculating..."
-
-		# Set the desired width (1/6 of viewport width)
-		var target_width = get_viewport_rect().size.x / 6
-
-		# Set the width first, so the child controls can reflow.
-		size.x = target_width
-
-		# Wait one frame for the layout system to update the VBoxContainer's geometry
-		# based on the new width of this NinePatchRect.
-		await get_tree().process_frame
-
-		# Now that layout is updated, calculate the required height of the VBoxContainer.
-		var vbox_min_size = $VBoxContainer.get_minimum_size()
-
-		# Add padding for the NinePatchRect's borders.
-		var panel_content_height = vbox_min_size.y + patch_margin_top + patch_margin_bottom
-
-		# Set the NinePatchRect's final size.
-		custom_minimum_size = Vector2(target_width, panel_content_height)
-		size = custom_minimum_size
-
-		show()
+	# Check the type of the target and instantiate the correct info panel
+	if "station_name" in target: # Duck typing to check if it's a station
+		current_content = StationInfo.instantiate()
+	# elif "train_name" in target: # For trains later
+		# current_content = TrainInfo.instantiate()
 	else:
-		hide()
+		print("Unknown target for UIPanel: ", target)
+		return
 
-func set_next_train_label(text):
-	next_train_label.text = "Next Train: " + text
+	content_container.add_child(current_content)
+	current_content.update_info(target)
+
+	# --- Sizing ---
+	var target_width = get_viewport_rect().size.x / 6
+	size.x = target_width
+	await get_tree().process_frame
+	var vbox_min_size = content_container.get_minimum_size()
+	var panel_content_height = vbox_min_size.y + patch_margin_top + patch_margin_bottom
+	custom_minimum_size = Vector2(target_width, panel_content_height)
+	size = custom_minimum_size
+
+	# --- Positioning ---
+	var screen_pos = get_viewport().get_canvas_transform() * target.global_position
+	position = screen_pos + Vector2(30, -size.y * 0.5)
+
+	show()

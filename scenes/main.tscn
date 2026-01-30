@@ -307,7 +307,7 @@ offset_bottom = 40.0
 grow_horizontal = 0
 theme_override_constants/separation = 8
 
-[node name="Label" type="Label" parent="CanvasLayer/HBoxContainer"]
+[node name="TimeLabel" type="Label" parent="CanvasLayer/HBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.9529412, 0.54901963, 0.23921569, 1)
 theme_override_fonts/font = ExtResource("8_eb6dy")
