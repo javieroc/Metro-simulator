@@ -19,3 +19,8 @@ func show_station_panel(station):
 	var screen_pos = get_viewport().get_canvas_transform() * station.global_position
 	station_panel.position = screen_pos + Vector2(30, -station_panel.size.y * 0.5)
 	station_panel.show()
+
+func _unhandled_input(event):
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+		if station_panel.visible:
+			station_panel.hide()
