@@ -1,7 +1,7 @@
 extends NinePatchRect
 
 const StationInfo = preload("res://scenes/station_info.tscn")
-#const TrainInfo = preload("res://scenes/train_info.tscn")
+const TrainInfo = preload("res://scenes/train_info.tscn")
 
 @onready var content_container = $ContentContainer
 var current_content = null
@@ -15,8 +15,8 @@ func display_info_for(target):
 	# Check the type of the target and instantiate the correct info panel
 	if "station_name" in target: # Duck typing to check if it's a station
 		current_content = StationInfo.instantiate()
-	# elif "train_name" in target: # For trains later
-		# current_content = TrainInfo.instantiate()
+	elif "max_speed" in target: # For trains later
+		current_content = TrainInfo.instantiate()
 	else:
 		print("Unknown target for UIPanel: ", target)
 		return

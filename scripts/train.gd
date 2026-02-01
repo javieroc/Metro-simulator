@@ -1,5 +1,7 @@
 extends PathFollow2D
 
+signal train_clicked(train)
+
 # --- Physical parameters ---
 @export var max_speed := 300.0
 @export var acceleration := 200.0
@@ -10,6 +12,7 @@ extends PathFollow2D
 var passengers_on_board := 0
 
 # --- Line & routing ---
+var line: MetroLine
 var stations := []
 var current_station_index := 0
 var next_station_index := 1
@@ -27,13 +30,15 @@ var bidirectional := true
 
 func _ready():
 	await get_tree().process_frame
-	var line = get_parent() as MetroLine
+	line = get_parent() as MetroLine
 	stations = line.stations
 	print("Stations loaded:", stations.size())
 
 	current_station_index = 0
 	next_station_index = 1
 	progress = stations[0].offset_on_path
+	
+	$Area2D.input_event.connect(_on_input_event)
 
 
 func _process(delta):
@@ -106,3 +111,13 @@ func arrive_at_station():
 		# Circular line
 		if next_station_index >= stations.size():
 			next_station_index = 0
+
+func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+		emit_signal("train_clicked", self)
+		get_viewport().set_input_as_handled()
+
+func get_next_station_name():
+	if next_station_index >= 0 and next_station_index < stations.size():
+		return stations[next_station_index].station_name
+	return "N/A"
