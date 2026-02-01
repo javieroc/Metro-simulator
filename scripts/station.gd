@@ -8,7 +8,7 @@ signal station_clicked(station)
 @export var radius := 20.0
 
 # Passenger model (Poisson λ per minute)
-@export var arrival_rate_per_minute: float = 120.0
+@export var arrival_rate_per_minute: float = 10.0
 @export var exit_probability := 0.25
 @export var alight_ratio := 0.3
 var waiting_passengers: int = 0
