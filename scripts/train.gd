@@ -74,30 +74,7 @@ func update_visual_direction():
 		.set_trans(Tween.TRANS_SINE)\
 		.set_ease(Tween.EASE_IN_OUT)
 
-
-func arrive_at_station():
-	waiting = true
-	current_speed = 0
-
-	# Snap exactly to platform center
-	progress = stations[next_station_index].offset_on_path
-
-	var station = stations[next_station_index]
-
-	# --- Passenger flow (basic model) ---
-	var alighting = int(passengers_on_board * 0.3)
-	passengers_on_board -= alighting
-
-	var boarding = min(station.platform_capacity, capacity - passengers_on_board)
-	passengers_on_board += boarding
-
-	# --- Dwell time ---
-	dwell_timer = station.dwell_time
-
-	# --- Advance routing with direction ---
-	current_station_index = next_station_index
-	next_station_index += direction
-
+func _handle_direction():
 	if bidirectional:
 		if next_station_index >= stations.size():
 			next_station_index = stations.size() - 2
@@ -111,6 +88,35 @@ func arrive_at_station():
 		# Circular line
 		if next_station_index >= stations.size():
 			next_station_index = 0
+
+func arrive_at_station():
+	waiting = true
+	current_speed = 0
+	# Snap exactly to platform center
+	progress = stations[next_station_index].offset_on_path
+
+	var station = stations[next_station_index]
+
+	# --- 1. Alighting ---
+	var alighting = int(passengers_on_board * station.alight_ratio)
+	passengers_on_board -= alighting
+	
+	# Some passengers leave the system here
+	var exiting = int(alighting * station.exit_probability)
+	station.alight_passengers(alighting - exiting)
+
+	# --- 2. Boarding ---
+	var free_space = capacity - passengers_on_board
+	var boarding = station.board_passengers(free_space)
+	passengers_on_board += boarding
+
+	# --- 3. Dwell ---
+	dwell_timer = station.dwell_time
+
+	# --- Advance routing with direction ---
+	current_station_index = next_station_index
+	next_station_index += direction
+	_handle_direction()
 
 func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:

@@ -117,3 +117,62 @@ SplashScreen (Control)
 │           ├── Options (TextureButton)
 │           └── Quit (TextureButton)
 ```
+
+## Other Scene Hierarchies
+
+### station.tscn
+```
+Station (Node2D)
+├── NameLabel (Label)
+├── Icon (Node2D)
+└── Area2D (Area2D)
+	└── CollisionShape2D (CollisionShape2D)
+```
+
+### train.tscn
+```
+Train (PathFollow2D)
+├── Sprite2D (Sprite2D)
+└── Area2D (Area2D)
+	└── CollisionShape2D (CollisionShape2D)
+```
+
+### ui_panel.tscn
+```
+UIPanel (NinePatchRect)
+└── ContentContainer (VBoxContainer)
+```
+
+### station_info.tscn
+```
+StationInfo (VBoxContainer)
+├── StationName (Label)
+├── Passengers (Label)
+├── Line (Label)
+└── NextTrain (Label)
+```
+
+### train_info.tscn
+```
+TrainInfo (VBoxContainer)
+├── TrainName (Label)
+├── Passengers (Label)
+├── Line (Label)
+├── NextStation (Label)
+└── Speed (Label)
+```
+
+## Scripts
+
+- **`camera_2d.gd`**: Manages camera movement and zoom.
+- **`main_menu.gd`**: Handles main menu logic (start, options, quit).
+- **`main.gd`**: Main script for the simulation.
+- **`metro_line.gd`**: Defines the behavior of a metro line.
+- **`music_toggle.gd`**: Toggles music on and off.
+- **`simulation_clock.gd`**: Manages the simulation's clock.
+- **`station_info.gd`**: Displays information about a station.
+- **`station.gd`**: Defines station behavior.
+- **`time_label.gd`**: Displays the current time.
+- **`train_info.gd`**: Displays information about a train.
+- **`train.gd`**: Defines train behavior.
+- **`ui_panel.gd`**: Manages the UI panel.

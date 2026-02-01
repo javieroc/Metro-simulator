@@ -9,6 +9,8 @@ signal station_clicked(station)
 
 # Passenger model (Poisson λ per minute)
 @export var arrival_rate_per_minute: float = 120.0
+@export var exit_probability := 0.25
+@export var alight_ratio := 0.3
 var waiting_passengers: int = 0
 
 var line: MetroLine
@@ -53,6 +55,14 @@ func poisson_sample(mean: float) -> int:
 		p *= randf()
 	return k - 1
 
+func board_passengers(requested: int) -> int:
+	var boarding = min(requested, waiting_passengers)
+	waiting_passengers -= boarding
+	return boarding
+
+func alight_passengers(count: int):
+	waiting_passengers += count
+	waiting_passengers = min(waiting_passengers, platform_capacity)
 
 func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
