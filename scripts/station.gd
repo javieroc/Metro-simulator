@@ -41,6 +41,7 @@ func generate_passengers(delta):
 	var expected = lambda_per_second * delta
 
 	var new_passengers = poisson_sample(expected)
+	Clock.add_passengers(new_passengers)
 	waiting_passengers += new_passengers
 
 	# Cap by platform capacity

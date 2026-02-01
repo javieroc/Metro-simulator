@@ -2,12 +2,27 @@ extends Node
 
 var time_scale := 60.0 # 1 real second = 1 simulated minute
 var seconds := 0.0
+var total_passengers := 0
 
 signal time_changed(formatted_time)
+signal passengers_changed(total_passengers)
 
 func _process(delta):
 	seconds += delta * time_scale
 	emit_signal("time_changed", get_formatted_time())
+
+func add_passengers(count: int):
+	if count <= 0:
+		return
+	total_passengers += count
+	emit_signal("passengers_changed", total_passengers)
+
+func remove_passengers(count: int):
+	if count <= 0:
+		return
+	total_passengers -= count
+	total_passengers = max(total_passengers, 0)
+	emit_signal("passengers_changed", total_passengers)
 
 func get_formatted_time() -> String:
 	var total_minutes = int(seconds / 60.0)

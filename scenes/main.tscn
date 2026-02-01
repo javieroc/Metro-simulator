@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://bkyelsl6agbg3"]
+[gd_scene load_steps=19 format=3 uid="uid://bkyelsl6agbg3"]
 
 [ext_resource type="Script" uid="uid://c8xk4uydv000r" path="res://scripts/main.gd" id="1_jkv2x"]
 [ext_resource type="Texture2D" uid="uid://j3tu0kfd84r4" path="res://Moscow_metro_map_v3.svg" id="1_tbgi4"]
@@ -11,6 +11,7 @@
 [ext_resource type="FontFile" uid="uid://wdmqudrpc2yx" path="res://font/Orbitron-Bold.ttf" id="8_eb6dy"]
 [ext_resource type="Texture2D" uid="uid://bx44rt30hcxig" path="res://UI/sound_on_orange_button.png" id="8_ya4ey"]
 [ext_resource type="Texture2D" uid="uid://bwlkqiics0qat" path="res://UI/sound_off_orange_button.png" id="9_eb6dy"]
+[ext_resource type="Script" uid="uid://bawkfjd5goc1c" path="res://scripts/passengers_label.gd" id="9_jkv2x"]
 [ext_resource type="Script" uid="uid://duoqm3w3av5a8" path="res://scripts/music_toggle.gd" id="10_trceg"]
 [ext_resource type="Script" uid="uid://da2ge73ygogvx" path="res://scripts/time_label.gd" id="11_ya4ey"]
 [ext_resource type="PackedScene" uid="uid://fviyil048il5" path="res://scenes/ui_panel.tscn" id="13_trceg"]
@@ -306,6 +307,12 @@ offset_left = -40.0
 offset_bottom = 40.0
 grow_horizontal = 0
 theme_override_constants/separation = 8
+
+[node name="PassengersLabel" type="Label" parent="CanvasLayer/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9529412, 0.54901963, 0.23921569, 1)
+theme_override_fonts/font = ExtResource("8_eb6dy")
+script = ExtResource("9_jkv2x")
 
 [node name="TimeLabel" type="Label" parent="CanvasLayer/HBoxContainer"]
 layout_mode = 2

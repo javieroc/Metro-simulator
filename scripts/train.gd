@@ -103,6 +103,7 @@ func arrive_at_station():
 	
 	# Some passengers leave the system here
 	var exiting = int(alighting * station.exit_probability)
+	Clock.remove_passengers(exiting)
 	station.alight_passengers(alighting - exiting)
 
 	# --- 2. Boarding ---
