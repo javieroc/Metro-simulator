@@ -5,7 +5,18 @@ const Train = preload("res://scripts/train.gd")
 
 func _ready():
 	connect_all_station_signals()
-	connect_all_train_signals()
+
+	for line_node in $Tracks.get_children():
+		var line := line_node as MetroLine
+		if not line:
+			continue
+
+		line.train_spawned.connect(_on_train_spawned)
+
+		line.spawn_train()
+
+		for train in line.trains:
+			_on_train_spawned(train)
 
 func connect_all_station_signals():
 	for line in $Tracks.get_children():
@@ -13,16 +24,15 @@ func connect_all_station_signals():
 		for station in stations_node.get_children():
 			station.station_clicked.connect(_on_station_clicked)
 
-func connect_all_train_signals():
-	for line in $Tracks.get_children():
-		for train in line.get_children():
-			if train is Train:
-				train.train_clicked.connect(_on_train_clicked)
+func _on_train_spawned(train):
+	if not train.train_clicked.is_connected(_on_train_clicked):
+		train.train_clicked.connect(_on_train_clicked)
 
 func _on_station_clicked(station):
 	info_panel.display_info_for(station)
 
 func _on_train_clicked(train):
+	print("Train clicked signal received in main.gd!")
 	info_panel.display_info_for(train)
 
 func _unhandled_input(event):

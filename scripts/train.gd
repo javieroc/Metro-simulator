@@ -30,14 +30,23 @@ var bidirectional := true
 
 func _ready():
 	await get_tree().process_frame
-	line = get_parent() as MetroLine
+
+	if not line:
+		return
+
 	stations = line.stations
-	print("Stations loaded:", stations.size())
+	bidirectional = line.bidirectional
+
+	if stations.size() < 2:
+		set_process(false)
+		return
 
 	current_station_index = 0
 	next_station_index = 1
-	progress = stations[0].offset_on_path
-	
+
+	if progress == 0:
+		progress = stations[0].offset_on_path
+
 	$Area2D.input_event.connect(_on_input_event)
 
 
@@ -74,6 +83,7 @@ func update_visual_direction():
 		.set_trans(Tween.TRANS_SINE)\
 		.set_ease(Tween.EASE_IN_OUT)
 
+
 func _handle_direction():
 	if bidirectional:
 		if next_station_index >= stations.size():
@@ -88,6 +98,7 @@ func _handle_direction():
 		# Circular line
 		if next_station_index >= stations.size():
 			next_station_index = 0
+
 
 func arrive_at_station():
 	waiting = true
@@ -120,10 +131,13 @@ func arrive_at_station():
 	next_station_index += direction
 	_handle_direction()
 
+
 func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+		print("Train clicked!")
 		emit_signal("train_clicked", self)
 		get_viewport().set_input_as_handled()
+
 
 func get_next_station_name():
 	if next_station_index >= 0 and next_station_index < stations.size():
