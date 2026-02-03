@@ -2,6 +2,8 @@ extends PathFollow2D
 
 signal train_clicked(train)
 
+var is_ready := false
+
 # --- Physical parameters ---
 @export var max_speed := 300.0
 @export var acceleration := 200.0
@@ -32,13 +34,16 @@ func _ready():
 	await get_tree().process_frame
 
 	if not line:
+		set_physics_process(false)
+		is_ready = true
 		return
 
 	stations = line.stations
 	bidirectional = line.bidirectional
 
 	if stations.size() < 2:
-		set_process(false)
+		set_physics_process(false)
+		is_ready = true
 		return
 
 	current_station_index = 0
@@ -48,9 +53,13 @@ func _ready():
 		progress = stations[0].offset_on_path
 
 	$Area2D.input_event.connect(_on_input_event)
+	is_ready = true
 
 
-func _process(delta):
+func _physics_process(delta):
+	if not is_ready:
+		return
+
 	total_travel_time += delta
 
 	if waiting:
