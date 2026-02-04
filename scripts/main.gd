@@ -11,12 +11,8 @@ func _ready():
 		if not line:
 			continue
 
-		line.train_spawned.connect(_on_train_spawned)
-
-		line.spawn_train()
-
-		for train in line.trains:
-			_on_train_spawned(train)
+		if not line.train_spawned.is_connected(_on_train_spawned):
+			line.train_spawned.connect(_on_train_spawned)
 
 func connect_all_station_signals():
 	for line in $Tracks.get_children():
