@@ -25,7 +25,7 @@ func display_info_for(target):
 	current_content.update_info(target)
 
 	# --- Sizing ---
-	var target_width = get_viewport_rect().size.x / 6
+	var target_width = get_viewport_rect().size.x / 5
 	size.x = target_width
 	await get_tree().process_frame
 	var vbox_min_size = content_container.get_minimum_size()
@@ -34,7 +34,12 @@ func display_info_for(target):
 	size = custom_minimum_size
 
 	# --- Positioning ---
-	var screen_pos = get_viewport().get_canvas_transform() * target.global_position
-	position = screen_pos + Vector2(30, -size.y * 0.5)
+	var margin := 16
+	var viewport_size := get_viewport_rect().size
+
+	position = Vector2(
+		margin,
+		viewport_size.y - size.y - margin
+	)
 
 	show()
