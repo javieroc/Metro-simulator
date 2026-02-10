@@ -176,3 +176,38 @@ TrainInfo (VBoxContainer)
 - **`train_info.gd`**: Displays information about a train.
 - **`train.gd`**: Defines train behavior.
 - **`ui_panel.gd`**: Manages the UI panel.
+
+
+## Station Logic: The Passenger Model
+
+Each station in the simulator acts as a dynamic hub. To make the world feel alive, passengers don't arrive in a robotic, constant stream. Instead, they follow a Poisson Process, the gold standard for simulating random events in transportation.
+
+### 1. Mathematical Foundation: The Poisson Distribution
+
+The Poisson distribution models the probability of a specific number of independent events occurring within a fixed interval (in our case, the time between frames, or delta).
+
+The probability that exactly $k$ passengers arrive is given by:
+
+$$P(X = k) = \frac{\lambda^k e^{-\lambda}}{k!}$$
+
+Where:
+- $\lambda$ (Lambda): The expected average number of arrivals. In `station.gd`, we calculate this by converting the `arrival_rate_per_minute` into a per-frame rate: $\lambda = (\text{rate} / 60) \times \text{delta}$.
+- $e$: Euler's number ($\approx 2.718$).
+- $k$: The number of passengers arriving (0, 1, 2...).
+
+### 2. The Implementation: Knuth’s Algorithm
+
+Because calculating factorials ($k!$) and powers every frame is computationally expensive, `station.gd` uses Knuth’s Algorithm (a multiplicative transformation) to sample from the distribution:
+
+```gdscript
+func poisson_sample(mean: float) -> int:
+    var L = exp(-mean) # The threshold
+    var k = 0          # Number of passengers
+    var p = 1.0        # Cumulative product
+    while p > L:
+        k += 1
+        p *= randf()   # Random walk until we hit the threshold
+    return k - 1
+```
+
+**How it works:** The algorithm simulates "inter-arrival times." In a Poisson process, the time between arrivals follows an Exponential Distribution. By multiplying a sequence of random numbers until they fall below $e^{-\lambda}$, we are effectively counting how many "randomly spaced" passenger arrivals can fit into the current frame's time window (delta).
