@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://bkyelsl6agbg3"]
+[gd_scene load_steps=22 format=3 uid="uid://bkyelsl6agbg3"]
 
 [ext_resource type="Script" uid="uid://c8xk4uydv000r" path="res://scripts/main.gd" id="1_jkv2x"]
 [ext_resource type="Texture2D" uid="uid://j3tu0kfd84r4" path="res://Moscow_metro_map_v3.svg" id="1_tbgi4"]
@@ -39,6 +39,18 @@ _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 1823, 2990, 0, 0, 0, 0, 1791, 2945, 0, 0, 0, 0, 1763, 2905, 0, 0, 0, 0, 1744, 2872, 0, 0, 0, 0, 1722, 2836, 0, 0, 0, 0, 1697, 2787, 0, 0, 0, 0, 1677, 2744, 0, 0, 0, 0, 1661, 2707, 0, 0, 0, 0, 1649, 2671, 0, 0, 0, 0, 1639, 2641, 0, 0, 0, 0, 1620, 2587, 0, 0, 0, 0, 1609, 2523, 0, 0, 0, 0, 1604, 2482, 0, 0, 0, 0, 1595, 2396, 0, 0, 0, 0, 1593, 2331, 0, 0, 0, 0, 1594, 2263, 0, 0, 0, 0, 1603, 2192, 0, 0, 0, 0, 1614, 2126, 0, 0, 0, 0, 1626, 2075, 0, 0, 0, 0, 1636, 2036, 0, 0, 0, 0, 1649, 1996, 0, 0, 0, 0, 1659, 1959, 0, 0, 0, 0, 1677, 1913, 0, 0, 0, 0, 1701, 1863, 0, 0, 0, 0, 1728, 1818, 0, 0, 0, 0, 1757, 1768, 0, 0, 0, 0, 1788, 1725, 0, 0, 0, 0, 1809, 1697, 0, 0, 0, 0, 1824, 1677, 0, 0, 0, 0, 1860, 1633, 0, 0, 0, 0, 1888, 1604, 0, 0, 0, 0, 1915, 1580, 0, 0, 0, 0, 1937, 1561, 0, 0, 0, 0, 1955, 1544, 0, 0, 0, 0, 1977, 1526, 0, 0, 0, 0, 2002, 1507, 0, 0, 0, 0, 2027, 1488, 0, 0, 0, 0, 2053, 1468, 0, 0, 0, 0, 2085, 1447, 0, 0, 0, 0, 2111, 1432, 0, 0, 0, 0, 2138, 1418, 0, 0, 0, 0, 2166, 1404, 0, 0, 0, 0, 2188, 1392, 0, 0, 0, 0, 2227, 1374, 0, 0, 0, 0, 2261, 1359, 0, 0, 0, 0, 2293, 1347, 0, 0, 0, 0, 2321, 1339, 0, 0, 0, 0, 2351, 1331, 0, 0, 0, 0, 2381, 1323, 0, 0, 0, 0, 2407, 1317, 0, 0, 0, 0, 2432, 1311, 0, 0, 0, 0, 2455, 1306, 0, 0, 0, 0, 2486, 1302, 0, 0, 0, 0, 2512, 1298, 0, 0, 0, 0, 2541, 1296, 0, 0, 0, 0, 2569, 1295, 0, 0, 0, 0, 2606, 1294, 0, 0, 0, 0, 2655, 1294, 0, 0, 0, 0, 2712, 1297, 0, 0, 0, 0, 2740, 1298, 0, 0, 0, 0, 2774, 1301, 0, 0, 0, 0, 2806, 1306, 0, 0, 0, 0, 2832, 1312, 0, 0, 0, 0, 2867, 1320, 0, 0, 0, 0, 2905, 1328, 0, 0, 0, 0, 2944, 1340, 0, 0, 0, 0, 2981, 1352, 0, 0, 0, 0, 3022, 1367, 0, 0, 0, 0, 3055, 1380, 0, 0, 0, 0, 3077, 1390, 0, 0, 0, 0, 3113, 1410, 0, 0, 0, 0, 3158, 1434, 0, 0, 0, 0, 3190, 1454, 0, 0, 0, 0, 3209, 1467, 0, 0, 0, 0, 3232, 1483, 0, 0, 0, 0, 3260, 1503, 0, 0, 0, 0, 3289, 1524, 0, 0, 0, 0, 3315, 1546, 0, 0, 0, 0, 3344, 1574, 0, 0, 0, 0, 3372, 1598, 0, 0, 0, 0, 3393, 1620, 0, 0, 0, 0, 3410, 1639, 0, 0, 0, 0, 3435, 1671, 0, 0, 0, 0, 3467, 1710, 0, 0, 0, 0, 3498, 1756, 0, 0, 0, 0, 3517, 1783, 0, 0, 0, 0, 3539, 1822, 0, 0, 0, 0, 3555, 1849, 0, 0, 0, 0, 3578, 1899, 0, 0, 0, 0, 3597, 1940, 0, 0, 0, 0, 3613, 1982, 0, 0, 0, 0, 3635, 2058, 0, 0, 0, 0, 3645, 2100, 0, 0, 0, 0, 3657, 2149, 0, 0, 0, 0, 3664, 2203, 0, 0, 0, 0, 3668, 2254, 0, 0, 0, 0, 3670, 2299, 0, 0, 0, 0, 3672, 2364, 0, 0, 0, 0, 3670, 2401, 0, 0, 0, 0, 3667, 2449, 0, 0, 0, 0, 3656, 2503, 0, 0, 0, 0, 3651, 2541, 0, 0, 0, 0, 3643, 2584, 0, 0, 0, 0, 3630, 2625, 0, 0, 0, 0, 3618, 2665, 0, 0, 0, 0, 3602, 2712, 0, 0, 0, 0, 3584, 2753, 0, 0, 0, 0, 3563, 2798, 0, 0, 0, 0, 3549, 2826, 0, 0, 0, 0, 3534, 2861, 0, 0, 0, 0, 3493, 2917, 0, 0, 0, 0, 3479, 2938, 0, 0, 0, 0, 3444, 2981, 0, 0, 0, 0, 3426, 3006, 0, 0, 0, 0, 3409, 3025, 0, 0, 0, 0, 3382, 3054, 0, 0, 0, 0, 3356, 3080, 0, 0, 0, 0, 3329, 3107, 0, 0, 0, 0, 3308, 3125, 0, 0, 0, 0, 3288, 3141, 0, 0, 0, 0, 3268, 3156, 0, 0, 0, 0, 3240, 3176, 0, 0, 0, 0, 3221, 3190, 0, 0, 0, 0, 3187, 3211, 0, 0, 0, 0, 3155, 3232, 0, 0, 0, 0, 3128, 3247, 0, 0, 0, 0, 3101, 3261, 0, 0, 0, 0, 3081, 3270, 0, 0, 0, 0, 3050, 3285, 0, 0, 0, 0, 3017, 3298, 0, 0, 0, 0, 2983, 3310, 0, 0, 0, 0, 2960, 3318, 0, 0, 0, 0, 2923, 3327, 0, 0, 0, 0, 2869, 3345, 0, 0, 0, 0, 2795, 3359, 0, 0, 0, 0, 2714, 3369, 0, 0, 0, 0, 2656, 3372, 0, 0, 0, 0, 2606, 3372, 0, 0, 0, 0, 2560, 3370, 0, 0, 0, 0, 2530, 3368, 0, 0, 0, 0, 2490, 3360, 0, 0, 0, 0, 2424, 3351, 0, 0, 0, 0, 2369, 3338, 0, 0, 0, 0, 2314, 3321, 0, 0, 0, 0, 2273, 3307, 0, 0, 0, 0, 2237, 3293, 0, 0, 0, 0, 2197, 3277, 0, 0, 0, 0, 2152, 3255, 0, 0, 0, 0, 2108, 3230, 0, 0, 0, 0, 2067, 3205, 0, 0, 0, 0, 2016, 3172, 0, 0, 0, 0, 1979, 3143, 0, 0, 0, 0, 1953, 3120, 0, 0, 0, 0, 1925, 3096, 0, 0, 0, 0, 1903, 3076, 0, 0, 0, 0, 1889, 3062, 0, 0, 0, 0, 1864, 3037, 0, 0, 0, 0, 1850, 3020, 0, 0, 0, 0, 1823, 2990)
 }
 point_count = 159
+
+[sub_resource type="Curve2D" id="Curve2D_jbj1t"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 2340, 2431, 0, 0, 0, 0, 2311, 2403, 0, 0, 0, 0, 2295, 2388, 0, 0, 0, 0, 2270, 2369, 13.40765, 4.578222, -13.40765, -4.578222, 2244, 2357, 0, 0, 0, 0, 2210, 2352, 0, 0, 0, 0, 2132, 2352, 0, 0, 0, 0, 1824, 2352, 0, 0, 0, 0, 1796, 2352, 0, 0, 0, 0, 1760, 2362, 0, 0, 0, 0, 1714, 2394, 0, 0, 0, 0, 1685, 2416, 0, 0, 0, 0, 1663, 2427, 0, 0, 0, 0, 1620, 2431, 0, 0, 0, 0, 1328, 2432, 45.91973, 1.5234034, -45.91973, -1.5234034, 1195, 2431, 0, 0, 0, 0, 1112, 2389, 0, 0, 0, 0, 1060, 2336, 22.147894, 13.080635, -22.147894, -13.080635, 999, 2290, 0, 0, 0, 0, 956, 2280, 49.837055, 4.134952, -49.837055, -4.134952, 788, 2279, 0, 0, 0, 0, 708, 2240, 0, 0, 0, 0, 588, 2120, 0, 0, 0, 0, 468, 2000, 0, 0, 0, 0, 348, 1880, 0, 0, 0, 0, 188, 1721)
+}
+point_count = 26
+
+[sub_resource type="Curve2D" id="Curve2D_muem4"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 2340, 2431, 0, 0, 0, 0, 2281, 2377, 20.602, 6.540317, -20.602, -6.540317, 2246, 2358, 0, 0, 0, 0, 2207, 2352, 0, 0, 0, 0, 2132, 2352, 0, 0, 0, 0, 1824, 2352, 21.583046, -11.282046, -21.583046, 11.282046, 1769, 2359, 0, 0, 0, 0, 1734, 2379, 0, 0, 0, 0, 1702, 2403, 20.43849, -7.030841, -20.43849, 7.030841, 1668, 2424, 0, 0, 0, 0, 1621, 2431, 21.02963, 11.789338, -21.02963, -11.789338, 1567, 2419, 0, 0, 0, 0, 1540, 2386, 2.549046, 34.41212, -2.549046, -34.41212, 1532, 2349, 0, 0, 0, 0, 1531, 2057, 0, 0, 0, 0, 1532, 1940)
+}
+point_count = 16
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_jkv2x")
@@ -326,6 +338,77 @@ position = Vector2(2923, 3327)
 
 [node name="Oktjabrskaja (Октябрьская)" parent="Tracks/BrownLine/Stations" instance=ExtResource("5_tbgi4")]
 position = Vector2(2491, 3360)
+
+[node name="LightBlueLine" type="Node2D" parent="Tracks"]
+
+[node name="LightBlueLineB1" type="Path2D" parent="Tracks/LightBlueLine"]
+curve = SubResource("Curve2D_jbj1t")
+script = ExtResource("3_tefeu")
+line_name = "Light Blue Line B1"
+line_color = Color(0.09803922, 0.75686276, 0.9529412, 1)
+train_scene = ExtResource("4_tbgi4")
+
+[node name="Stations" type="Node2D" parent="Tracks/LightBlueLine/LightBlueLineB1"]
+
+[node name="Alexandrowski sad (Александровский сад)" parent="Tracks/LightBlueLine/LightBlueLineB1/Stations" instance=ExtResource("5_tbgi4")]
+position = Vector2(2340, 2431)
+
+[node name="Arbatskaja (Арбатская)" parent="Tracks/LightBlueLine/LightBlueLineB1/Stations" instance=ExtResource("5_tbgi4")]
+position = Vector2(2132, 2352)
+
+[node name="Smolenskaja (Смоленская)" parent="Tracks/LightBlueLine/LightBlueLineB1/Stations" instance=ExtResource("5_tbgi4")]
+position = Vector2(1824, 2352)
+
+[node name="Kijewskaja (Киевская)" parent="Tracks/LightBlueLine/LightBlueLineB1/Stations" instance=ExtResource("5_tbgi4")]
+position = Vector2(1621, 2431)
+
+[node name="Studentscheskaja (Студенческая)" parent="Tracks/LightBlueLine/LightBlueLineB1/Stations" instance=ExtResource("5_tbgi4")]
+position = Vector2(1328, 2432)
+
+[node name="Kutusowskaja (Кутузовская)" parent="Tracks/LightBlueLine/LightBlueLineB1/Stations" instance=ExtResource("5_tbgi4")]
+position = Vector2(1060, 2336)
+
+[node name="Fili (Фили)" parent="Tracks/LightBlueLine/LightBlueLineB1/Stations" instance=ExtResource("5_tbgi4")]
+position = Vector2(708, 2240)
+
+[node name="Bagrationowskaja (Багратионовская)" parent="Tracks/LightBlueLine/LightBlueLineB1/Stations" instance=ExtResource("5_tbgi4")]
+position = Vector2(588, 2120)
+
+[node name="Filjowski park (Филёвский парк)" parent="Tracks/LightBlueLine/LightBlueLineB1/Stations" instance=ExtResource("5_tbgi4")]
+position = Vector2(468, 2000)
+
+[node name="Pionerskaja (Пионерская)" parent="Tracks/LightBlueLine/LightBlueLineB1/Stations" instance=ExtResource("5_tbgi4")]
+position = Vector2(348, 1880)
+
+[node name="Kunzewskaja (Кунцевская)" parent="Tracks/LightBlueLine/LightBlueLineB1/Stations" instance=ExtResource("5_tbgi4")]
+position = Vector2(188, 1722)
+
+[node name="LightBlueLineB2" type="Path2D" parent="Tracks/LightBlueLine"]
+curve = SubResource("Curve2D_muem4")
+script = ExtResource("3_tefeu")
+line_name = "Light Blue Line B2"
+line_color = Color(0.09803922, 0.75686276, 0.9529412, 1)
+train_scene = ExtResource("4_tbgi4")
+
+[node name="Stations" type="Node2D" parent="Tracks/LightBlueLine/LightBlueLineB2"]
+
+[node name="Alexandrowski sad (Александровский сад)" parent="Tracks/LightBlueLine/LightBlueLineB2/Stations" instance=ExtResource("5_tbgi4")]
+position = Vector2(2340, 2431)
+
+[node name="Arbatskaja (Арбатская)" parent="Tracks/LightBlueLine/LightBlueLineB2/Stations" instance=ExtResource("5_tbgi4")]
+position = Vector2(2132, 2352)
+
+[node name="Smolenskaja (Смоленская)" parent="Tracks/LightBlueLine/LightBlueLineB2/Stations" instance=ExtResource("5_tbgi4")]
+position = Vector2(1824, 2352)
+
+[node name="Kijewskaja (Киевская)" parent="Tracks/LightBlueLine/LightBlueLineB2/Stations" instance=ExtResource("5_tbgi4")]
+position = Vector2(1621, 2431)
+
+[node name="Wystawotschnaja (Выставочная)" parent="Tracks/LightBlueLine/LightBlueLineB2/Stations" instance=ExtResource("5_tbgi4")]
+position = Vector2(1532, 2060)
+
+[node name="Meschdunarodnaja (Международная)" parent="Tracks/LightBlueLine/LightBlueLineB2/Stations" instance=ExtResource("5_tbgi4")]
+position = Vector2(1532, 1940)
 
 [node name="Background" type="CanvasLayer" parent="."]
 layer = -10
