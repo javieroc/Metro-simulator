@@ -21,6 +21,13 @@ func _ready():
 	line = get_parent().get_parent() as MetroLine
 	offset_on_path = line.curve.get_closest_offset(global_position)
 	line.register_station(self)
+
+	var cfg := SimulationStore.current_config
+	if cfg:
+		arrival_rate_per_minute = cfg.default_arrival_rate * cfg.global_arrival_multiplier
+		dwell_time = cfg.default_dwell_time
+		alight_ratio = cfg.default_alight_ratio
+		platform_capacity = cfg.default_platform_capacity
 	
 	var shape :=  $Area2D/CollisionShape2D.shape as CircleShape2D
 	shape.radius = radius + 4

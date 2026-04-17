@@ -33,6 +33,10 @@ var bidirectional := true
 func _ready():
 	await get_tree().process_frame
 
+	var cfg := SimulationStore.current_config
+	if cfg:
+		capacity = cfg.train_capacity
+
 	if not line:
 		set_physics_process(false)
 		is_ready = true

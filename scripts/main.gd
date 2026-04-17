@@ -9,6 +9,20 @@ func _ready():
 	for line in get_all_metro_lines():
 		if not line.train_spawned.is_connected(_on_train_spawned):
 			line.train_spawned.connect(_on_train_spawned)
+	_add_stop_button()
+
+
+func _add_stop_button() -> void:
+	var btn := TextureButton.new()
+	btn.texture_normal = load("res://UI/menu_orange_button.png")
+	btn.mouse_default_cursor_shape = Control.CURSOR_POINTING_HAND
+	btn.set_anchors_preset(Control.PRESET_TOP_LEFT)
+	btn.offset_left = 16.0
+	btn.offset_top = 16.0
+	btn.pressed.connect(func() -> void:
+		get_tree().change_scene_to_file("res://scenes/boot.tscn")
+	)
+	$CanvasLayer.add_child(btn)
 
 func get_all_metro_lines() -> Array:
 	var lines := []

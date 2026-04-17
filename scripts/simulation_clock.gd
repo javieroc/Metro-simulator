@@ -1,11 +1,17 @@
 extends Node
 
-var time_scale := 60.0 # 1 real second = 1 simulated minute
+var time_scale := 60.0
 var seconds := 0.0
 var total_passengers := 0
 
 signal time_changed(formatted_time)
 signal passengers_changed(total_passengers)
+
+func _ready() -> void:
+	var cfg := SimulationStore.current_config
+	if cfg:
+		time_scale = cfg.time_scale
+
 
 func _process(delta):
 	seconds += delta * time_scale

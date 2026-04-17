@@ -14,11 +14,13 @@ func _process(delta: float) -> void:
 func _on_start_pressed() -> void:
 	click_sound.play()
 	await get_tree().create_timer(0.15).timeout
-	get_tree().change_scene_to_file("res://scenes/main.tscn")
+	get_tree().change_scene_to_file("res://scenes/simulation_selector.tscn")
 
 
 func _on_options_pressed() -> void:
-	print("options pressed")
+	click_sound.play()
+	await get_tree().create_timer(0.15).timeout
+	get_tree().change_scene_to_file("res://scenes/simulation_creator.tscn")
 
 
 func _on_quit_pressed() -> void:

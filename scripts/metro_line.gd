@@ -19,6 +19,11 @@ var dispatch_timer := 0.0
 @onready var stations_container := $Stations
 
 func _ready():
+	var line_cfg := SimulationStore.get_line_config(name)
+	if not line_cfg.is_empty():
+		target_headway = line_cfg.get("headway", target_headway)
+		speed_factor = line_cfg.get("speed_factor", speed_factor)
+
 	await _wait_for_all_stations()
 	spawn_trains()
 

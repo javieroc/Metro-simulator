@@ -17,6 +17,7 @@ config/icon="res://icon.svg"
 
 [autoload]
 
+SimulationStore="*res://scripts/simulation_store.gd"
 Clock="*res://scripts/simulation_clock.gd"
 
 [rendering]
